@@ -1,0 +1,24 @@
+{
+  "name": "@hjrbda-site/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@hjrbda-site/db": "workspace:*",
+    "@hjrbda-site/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@hjrbda-site/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
