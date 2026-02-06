@@ -7,6 +7,7 @@ import { nextCookies } from "better-auth/next-js";
 
 // Only initialize auth if database is configured
 const authConfig: Parameters<typeof betterAuth>[0] = {
+	secret: env.BETTER_AUTH_SECRET || "default-secret-key-for-development-only-change-in-production",
 	trustedOrigins: env.CORS_ORIGIN
 		? [env.CORS_ORIGIN]
 		: ["http://localhost:3000"],
