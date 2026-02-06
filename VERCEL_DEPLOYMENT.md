@@ -23,13 +23,18 @@ git push origin main
 
 ### 3. Configure Vercel Settings
 
-**Important:** The `vercel.json` file is already configured in the root directory. Vercel should auto-detect these settings:
+**Important:** Configure these in the Vercel Dashboard (not in vercel.json):
 
-- **Root Directory:** `apps/web` (auto-detected from vercel.json)
-- **Framework Preset:** Next.js (auto-detected)
-- **Build Command:** `cd ../.. && bun install && bun run build` (from vercel.json)
-- **Output Directory:** `apps/web/.next` (from vercel.json)
-- **Install Command:** `cd ../.. && bun install` (from vercel.json)
+1. **Root Directory:** Set to `apps/web` in the Vercel Dashboard
+   - Go to Settings → General → Root Directory
+   - Enter: `apps/web`
+
+2. **Framework Preset:** Next.js (should auto-detect)
+
+3. **Build & Output Settings:** The `vercel.json` file provides defaults, but you can override in dashboard:
+   - **Build Command:** `cd ../.. && bun install && bun run build`
+   - **Output Directory:** `apps/web/.next`
+   - **Install Command:** `cd ../.. && bun install`
 
 **Note:** If Vercel doesn't support bun, you can change the commands to use npm:
 - Build Command: `cd ../.. && npm install && npm run build`
