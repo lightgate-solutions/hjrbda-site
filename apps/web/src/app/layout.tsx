@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "hjrbda-site",
-  description: "hjrbda-site",
+  title: "HJRBDA - Hadaija Jama'are River Basin Development Authority",
+  description:
+    "Hadaija Jama'are River Basin Development Authority - Promoting sustainable water resource management and development",
 };
 
 export default function RootLayout({
@@ -30,9 +31,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <div className="grid grid-rows-[auto_1fr] h-svh">
+          <div className="flex min-h-screen flex-col">
             <Header />
-            {children}
+            <main className="flex-1">{children}</main>
           </div>
         </Providers>
       </body>
