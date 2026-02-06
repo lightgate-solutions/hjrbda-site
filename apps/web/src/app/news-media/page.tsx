@@ -92,7 +92,7 @@ export default function NewsMediaPage() {
               <CardContent>
                 <p className="mb-4 text-sm text-muted-foreground">{news.preview}</p>
                 <Link
-                  href={`/news-media/${news.id}`}
+                  href="/news-media"
                   className="text-sm font-medium text-primary hover:underline"
                 >
                   Read More →

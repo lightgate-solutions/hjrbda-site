@@ -72,7 +72,7 @@ export default function ApplyForGyesPage() {
 
               <div className="pt-4">
                 <Button size="lg" className="w-full" asChild>
-                  <Link href="/apply-for-gyes/application">Start Application</Link>
+                  <Link href="/apply-for-gyes">Start Application</Link>
                 </Button>
               </div>
 

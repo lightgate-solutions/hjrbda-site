@@ -142,6 +142,7 @@ export default function Home() {
               </CardContent>
             </Card>
           ))}
+          </div>
         </div>
       </section>
 
@@ -234,11 +235,12 @@ export default function Home() {
               </CardHeader>
             </Card>
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Button size="lg" className="px-8" asChild>
-            <Link href="/key-projects">SHOW MORE</Link>
-          </Button>
+          </div>
+          <div className="mt-12 text-center">
+            <Button size="lg" className="px-8" asChild>
+              <Link href="/key-projects">SHOW MORE</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
