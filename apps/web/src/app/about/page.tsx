@@ -5,31 +5,34 @@ import Footer from "@/components/footer";
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-foreground">
+          <Link href="/" className="hover:text-foreground transition-colors">
             Home
           </Link>
           <span className="mx-2">/</span>
-          <span>About</span>
+          <span className="text-foreground">About</span>
         </nav>
 
-        <h1 className="mb-8 text-4xl font-bold">ABOUT US</h1>
+        <div className="mb-12">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">About</div>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">ABOUT US</h1>
+        </div>
 
         {/* About HJRBDA */}
-        <section className="mb-12">
-          <h2 className="mb-4 text-3xl font-bold">ABOUT HJRBDA</h2>
-          <div className="prose prose-lg max-w-none">
-            <h3 className="text-2xl font-semibold">Brief History of HJRBDA</h3>
-            <p className="mb-4 text-muted-foreground">
+        <section className="mb-16">
+          <h2 className="mb-6 text-3xl font-bold tracking-tight text-foreground">ABOUT HJRBDA</h2>
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-foreground">Brief History of HJRBDA</h3>
+            <p className="leading-relaxed text-muted-foreground">
               The Hadaija Jama'are River Basin Development Authority, a Parastatal of the Federal
               Ministry of Water Resources was established to embark on, among other functions, the
               development of both surface and underground water resources potentials of the nation
               for multipurpose use but with particular emphasis on the development of irrigated
               agriculture.
             </p>
-            <p className="mb-4 text-muted-foreground">
+            <p className="leading-relaxed text-muted-foreground">
               The Authority has been working diligently to manage water resources and promote
               sustainable development in the Hadaija Jama'are region, focusing on irrigation,
               water supply, flood control, and agricultural development.
@@ -38,13 +41,13 @@ export default function AboutPage() {
         </section>
 
         {/* Vision */}
-        <section id="vision" className="mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">OUR VISION</CardTitle>
+        <section id="vision" className="mb-16">
+          <Card className="border-border/60 shadow-sm">
+            <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+              <CardTitle className="text-2xl font-semibold text-foreground">OUR VISION</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
+            <CardContent className="pt-6">
+              <p className="leading-relaxed text-muted-foreground">
                 To ensure effective and efficient implementation of the Nation's Water Resources
                 Development Policies, through optimal exploitation, conservation and overall
                 development of the nation's abundant surface and underground water resources
@@ -56,13 +59,13 @@ export default function AboutPage() {
         </section>
 
         {/* Mission */}
-        <section id="mission" className="mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">OUR MISSION</CardTitle>
+        <section id="mission" className="mb-16">
+          <Card className="border-border/60 shadow-sm">
+            <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+              <CardTitle className="text-2xl font-semibold text-foreground">OUR MISSION</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
+            <CardContent className="pt-6">
+              <p className="leading-relaxed text-muted-foreground">
                 To serve as a viable and veritable implementing Agency of Government in the
                 effective utilization of all the water resources potentials with the Hadaija
                 Jama'are Basin with a view to improving the quality of lives of the people in the
@@ -74,13 +77,13 @@ export default function AboutPage() {
         </section>
 
         {/* Mandate */}
-        <section id="mandate" className="mb-12">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">OUR MANDATE</CardTitle>
+        <section id="mandate" className="mb-16">
+          <Card className="border-border/60 shadow-sm">
+            <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+              <CardTitle className="text-2xl font-semibold text-foreground">OUR MANDATE</CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+            <CardContent className="pt-6">
+              <ul className="list-disc space-y-3 pl-6 leading-relaxed text-muted-foreground">
                 <li>
                   To ensure prompt efficient and effective service delivery to our end users.
                 </li>

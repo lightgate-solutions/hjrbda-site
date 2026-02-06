@@ -11,64 +11,79 @@ export default function Home() {
       <HeroCarousel />
 
       {/* Welcome Section */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">WELCOME TO HJRBDA</h2>
-          <p className="mx-auto max-w-3xl text-muted-foreground">
-            The Hadaija Jama'are River Basin Development Authority is committed to the sustainable
-            development and management of water resources in the region.
-          </p>
+      <section className="border-b border-border/40 bg-background py-16">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+              Welcome
+            </div>
+            <h2 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              WELCOME TO HJRBDA
+            </h2>
+            <p className="mx-auto text-lg leading-relaxed text-muted-foreground md:text-xl">
+              The Hadaija Jama'are River Basin Development Authority is committed to the sustainable
+              development and management of water resources in the region.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Vision, Mission, Mandate Blocks */}
-      <section className="bg-muted/50 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Vision</CardTitle>
+      <section className="border-b border-border/40 bg-slate-50/50 py-16 dark:bg-slate-950/30">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+              Our Foundation
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Vision, Mission & Mandate
+            </h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+              <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+                <CardTitle className="text-xl font-semibold text-foreground">Our Vision</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-6">
+                <p className="mb-6 leading-relaxed text-muted-foreground">
                   To ensure effective and efficient implementation of the nation's water resources
                   development policies, through optimal exploitation, conservation and overall
                   development of the nation's abundant surface and underground water resources
                   potentials...
-                </CardDescription>
-                <Button variant="link" className="mt-4 p-0" asChild>
+                </p>
+                <Button variant="outline" className="w-full" asChild>
                   <Link href="/about#vision">READ MORE</Link>
                 </Button>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Mission</CardTitle>
+            <Card className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+              <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+                <CardTitle className="text-xl font-semibold text-foreground">Our Mission</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-6">
+                <p className="mb-6 leading-relaxed text-muted-foreground">
                   To serve as a viable and veritable implementing agency of Government in the
                   effective utilization of all the water resources potentials with the Lower Basin
                   of the River Niger with a view to improving the quality of lives of the people...
-                </CardDescription>
-                <Button variant="link" className="mt-4 p-0" asChild>
+                </p>
+                <Button variant="outline" className="w-full" asChild>
                   <Link href="/about#mission">READ MORE</Link>
                 </Button>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Mandate</CardTitle>
+            <Card className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+              <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+                <CardTitle className="text-xl font-semibold text-foreground">Our Mandate</CardTitle>
               </CardHeader>
-              <CardContent>
-                <CardDescription>
+              <CardContent className="pt-6">
+                <p className="mb-6 leading-relaxed text-muted-foreground">
                   To supply water from the Authority's completed storage schemes to all users for a
                   fee to ensure prompt efficient and effective service delivery to our end users. To
                   remain responsive to the demands and aspirations of the beneficiaries...
-                </CardDescription>
-                <Button variant="link" className="mt-4 p-0" asChild>
+                </p>
+                <Button variant="outline" className="w-full" asChild>
                   <Link href="/about#mandate">READ MORE</Link>
                 </Button>
               </CardContent>
@@ -78,9 +93,17 @@ export default function Home() {
       </section>
 
       {/* Latest News */}
-      <section className="container mx-auto px-4 py-12">
-        <h2 className="mb-8 text-center text-3xl font-bold">Latest News</h2>
-        <div className="grid gap-6 md:grid-cols-3">
+      <section className="border-b border-border/40 bg-background py-16">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+              Updates
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Latest News
+            </h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
           {[
             {
               id: 1,
@@ -104,16 +127,16 @@ export default function Home() {
               preview: "New tenders are now open for various infrastructure projects...",
             },
           ].map((news) => (
-            <Card key={news.id}>
-              <CardHeader>
-                <CardTitle className="text-lg">{news.title}</CardTitle>
-                <CardDescription>
+            <Card key={news.id} className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+              <CardHeader className="border-b border-border/40">
+                <CardTitle className="text-lg font-semibold text-foreground">{news.title}</CardTitle>
+                <CardDescription className="mt-2 text-xs">
                   By {news.author} • {new Date(news.date).toLocaleDateString()}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="mb-4 text-sm text-muted-foreground">{news.preview}</p>
-                <Button variant="link" className="p-0" asChild>
+              <CardContent className="pt-6">
+                <p className="mb-4 leading-relaxed text-muted-foreground">{news.preview}</p>
+                <Button variant="outline" size="sm" className="w-full" asChild>
                   <Link href="/news-media">Read More</Link>
                 </Button>
               </CardContent>
@@ -123,10 +146,17 @@ export default function Home() {
       </section>
 
       {/* Our Services */}
-      <section className="bg-muted/50 py-12">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">OUR SERVICES</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="border-b border-border/40 bg-slate-50/50 py-16 dark:bg-slate-950/30">
+        <div className="container mx-auto px-6">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+              What We Do
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              OUR SERVICES
+            </h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 title: "Surveying/Hydromet Equipment",
@@ -159,12 +189,12 @@ export default function Home() {
                   "The HJRBDA also construct Guest Houses for accommodation purposes",
               },
             ].map((service, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
+              <Card key={index} className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+                <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+                  <CardTitle className="text-lg font-semibold text-foreground">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription>{service.description}</CardDescription>
+                <CardContent className="pt-6">
+                  <p className="leading-relaxed text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -173,32 +203,40 @@ export default function Home() {
       </section>
 
       {/* Recent Projects */}
-      <section className="container mx-auto px-4 py-12">
-        <h2 className="mb-8 text-center text-3xl font-bold">RECENT PROJECTS</h2>
-        <p className="mb-8 text-center text-muted-foreground">
-          The HJRBDA undertakes numerous projects as presented in its yearly appropriation. These
-          projects range from dam construction, construction of irrigation projects, water supply
-          scheme, flood & erosion works...
-        </p>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <section className="border-b border-border/40 bg-background py-16">
+        <div className="container mx-auto px-6">
+          <div className="mb-8 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+              Our Work
+            </div>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              RECENT PROJECTS
+            </h2>
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              The HJRBDA undertakes numerous projects as presented in its yearly appropriation. These
+              projects range from dam construction, construction of irrigation projects, water supply
+              scheme, flood & erosion works...
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {[
             { title: "Irrigation Projects", image: "/placeholder-project-1.jpg" },
             { title: "Solar Street Lights", image: "/placeholder-project-2.jpg" },
             { title: "Water Supply Projects", image: "/placeholder-project-3.jpg" },
             { title: "Dam Construction", image: "/placeholder-project-4.jpg" },
           ].map((project, index) => (
-            <Card key={index} className="overflow-hidden">
-              <div className="h-48 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground">{project.title}</span>
+            <Card key={index} className="overflow-hidden border-border/60 shadow-sm transition-shadow hover:shadow-md">
+              <div className="h-48 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center border-b border-border/40">
+                <span className="text-sm font-medium text-muted-foreground">{project.title}</span>
               </div>
-              <CardHeader>
-                <CardTitle className="text-lg">{project.title}</CardTitle>
+              <CardHeader className="bg-slate-50/50 dark:bg-slate-900/50">
+                <CardTitle className="text-base font-semibold text-foreground">{project.title}</CardTitle>
               </CardHeader>
             </Card>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Button asChild>
+        <div className="mt-12 text-center">
+          <Button size="lg" className="px-8" asChild>
             <Link href="/key-projects">SHOW MORE</Link>
           </Button>
         </div>

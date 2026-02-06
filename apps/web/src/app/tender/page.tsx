@@ -42,30 +42,33 @@ export default function TenderPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-foreground">
+          <Link href="/" className="hover:text-foreground transition-colors">
             Home
           </Link>
           <span className="mx-2">/</span>
-          <span>Tender News</span>
+          <span className="text-foreground">Tender News</span>
         </nav>
 
-        <h1 className="mb-8 text-4xl font-bold">TENDER NEWS</h1>
+        <div className="mb-12">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">Tenders</div>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">TENDER NEWS</h1>
+        </div>
 
         <div className="space-y-6">
           {tenders.map((tender) => (
-            <Card key={tender.id}>
-              <CardHeader>
-                <CardTitle className="text-xl">{tender.title}</CardTitle>
-                <CardDescription>
+            <Card key={tender.id} className="border-border/60 shadow-sm">
+              <CardHeader className="border-b border-border/40 bg-slate-50/50 dark:bg-slate-900/50">
+                <CardTitle className="text-xl font-semibold text-foreground">{tender.title}</CardTitle>
+                <CardDescription className="mt-2">
                   Published: {new Date(tender.date).toLocaleDateString()}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="mb-4 text-muted-foreground">{tender.description}</p>
-                <Button asChild>
+              <CardContent className="pt-6">
+                <p className="mb-6 leading-relaxed text-muted-foreground">{tender.description}</p>
+                <Button className="w-full md:w-auto" asChild>
                   <a href={tender.downloadUrl} download>
                     <Download className="mr-2 h-4 w-4" />
                     CLICK DOWNLOAD

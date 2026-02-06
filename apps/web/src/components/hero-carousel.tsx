@@ -55,28 +55,32 @@ export default function HeroCarousel() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-muted">
-      <div className="relative h-[500px] md:h-[600px]">
+    <div className="relative w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div className="relative h-[550px] md:h-[650px]">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ${
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             <div
-              className="h-full w-full bg-gradient-to-r from-blue-900/80 to-blue-700/80"
+              className="h-full w-full bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/95"
               style={{
                 backgroundImage: `url(${slide.imageUrl})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              {/* Placeholder overlay */}
-              <div className="flex h-full items-center justify-center bg-muted/50">
-                <div className="text-center text-white">
-                  <div className="mb-4 text-4xl font-bold md:text-5xl">{slide.title}</div>
-                  <div className="text-lg md:text-xl">{slide.description}</div>
+              {/* Professional overlay */}
+              <div className="flex h-full items-center justify-center bg-gradient-to-r from-slate-900/80 via-slate-800/70 to-slate-900/80">
+                <div className="container mx-auto px-6 text-center">
+                  <div className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+                    {slide.title}
+                  </div>
+                  <div className="mx-auto max-w-2xl text-lg font-light text-slate-200 md:text-xl lg:text-2xl">
+                    {slide.description}
+                  </div>
                 </div>
               </div>
             </div>
@@ -87,27 +91,27 @@ export default function HeroCarousel() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 hover:bg-background/80"
+          className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 text-white hover:text-white"
           onClick={goToPrevious}
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-5 w-5" />
         </Button>
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 hover:bg-background/80"
+          className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 text-white hover:text-white"
           onClick={goToNext}
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-5 w-5" />
         </Button>
 
         {/* Slide indicators */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-8 rounded-full transition-all ${
-                index === currentSlide ? "bg-white" : "bg-white/50"
+              className={`h-1.5 w-10 rounded-full transition-all ${
+                index === currentSlide ? "bg-white" : "bg-white/40 hover:bg-white/60"
               }`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
