@@ -5,15 +5,23 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 
-export const auth = betterAuth({
-	database: drizzleAdapter(db, {
-		provider: "pg",
-
-		schema: schema,
-	}),
-	trustedOrigins: [env.CORS_ORIGIN],
+// Only initialize auth if database is configured
+const authConfig: Parameters<typeof betterAuth>[0] = {
+	trustedOrigins: env.CORS_ORIGIN
+		? [env.CORS_ORIGIN]
+		: ["http://localhost:3000"],
 	emailAndPassword: {
 		enabled: true,
 	},
 	plugins: [nextCookies()],
-});
+};
+
+// Add database adapter only if DATABASE_URL is provided and db is available
+if (env.DATABASE_URL && db) {
+	authConfig.database = drizzleAdapter(db, {
+		provider: "pg",
+		schema: schema,
+	});
+}
+
+export const auth = betterAuth(authConfig);
