@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
+import ScrollAnimate from "@/components/scroll-animate";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function AboutPage() {
@@ -52,80 +53,89 @@ export default function AboutPage() {
 
 				{/* Vision */}
 				<section id="vision" className="mb-16">
-					<Card className="border-border/60 shadow-sm">
-						<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-							<CardTitle className="font-semibold text-2xl text-foreground">
-								OUR VISION
-							</CardTitle>
-						</CardHeader>
-						<CardContent className="pt-6">
-							<p className="text-muted-foreground leading-relaxed">
-								To ensure effective and efficient implementation of the Nation's
-								Water Resources Development Policies, through optimal
-								exploitation, conservation and overall development of the
-								nation's abundant surface and underground water resources
-								potentials, with a view to improving the quality of life of
-								every Nigerian particularly those within the Hadaija Jama'are
-								Basin of the River Niger.
-							</p>
-						</CardContent>
-					</Card>
+					<ScrollAnimate>
+						<Card className="border border-gray-200 bg-white shadow-md">
+							<CardHeader className="pt-8 pb-6">
+								<div className="mb-4 h-1 w-16 bg-blue-600" />
+								<CardTitle className="font-bold text-2xl text-gray-900">
+									OUR VISION
+								</CardTitle>
+							</CardHeader>
+							<CardContent className="pt-0 pb-8">
+								<p className="text-gray-600 leading-relaxed">
+									To ensure effective and efficient implementation of the
+									Nation's Water Resources Development Policies, through optimal
+									exploitation, conservation and overall development of the
+									nation's abundant surface and underground water resources
+									potentials, with a view to improving the quality of life of
+									every Nigerian particularly those within the Hadaija Jama'are
+									Basin of the River Niger.
+								</p>
+							</CardContent>
+						</Card>
+					</ScrollAnimate>
 				</section>
 
 				{/* Mission */}
 				<section id="mission" className="mb-16">
-					<Card className="border-border/60 shadow-sm">
-						<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-							<CardTitle className="font-semibold text-2xl text-foreground">
-								OUR MISSION
-							</CardTitle>
-						</CardHeader>
-						<CardContent className="pt-6">
-							<p className="text-muted-foreground leading-relaxed">
-								To serve as a viable and veritable implementing Agency of
-								Government in the effective utilization of all the water
-								resources potentials with the Hadaija Jama'are Basin with a view
-								to improving the quality of lives of the people in the areas
-								through development of irrigation agronomy, bulk and potable
-								water supply and other water shed management project.
-							</p>
-						</CardContent>
-					</Card>
+					<ScrollAnimate delay={100}>
+						<Card className="border border-gray-200 bg-white shadow-md">
+							<CardHeader className="pt-8 pb-6">
+								<div className="mb-4 h-1 w-16 bg-blue-600" />
+								<CardTitle className="font-bold text-2xl text-gray-900">
+									OUR MISSION
+								</CardTitle>
+							</CardHeader>
+							<CardContent className="pt-0 pb-8">
+								<p className="text-gray-600 leading-relaxed">
+									To serve as a viable and veritable implementing Agency of
+									Government in the effective utilization of all the water
+									resources potentials with the Hadaija Jama'are Basin with a
+									view to improving the quality of lives of the people in the
+									areas through development of irrigation agronomy, bulk and
+									potable water supply and other water shed management project.
+								</p>
+							</CardContent>
+						</Card>
+					</ScrollAnimate>
 				</section>
 
 				{/* Mandate */}
 				<section id="mandate" className="mb-16">
-					<Card className="border-border/60 shadow-sm">
-						<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-							<CardTitle className="font-semibold text-2xl text-foreground">
-								OUR MANDATE
-							</CardTitle>
-						</CardHeader>
-						<CardContent className="pt-6">
-							<ul className="list-disc space-y-3 pl-6 text-muted-foreground leading-relaxed">
-								<li>
-									To ensure prompt efficient and effective service delivery to
-									our end users.
-								</li>
-								<li>
-									To remain responsive to the demands and aspirations of the
-									beneficiaries of our services.
-								</li>
-								<li>
-									To ensure quality service in all aspect of our endeavour and
-									interaction with our clients.
-								</li>
-								<li>
-									To uphold firm principles of transparency, accountability and
-									reliable service delivery.
-								</li>
-								<li>
-									To abhore all external and internal impediments inimical to
-									effective and efficient service delivery.
-								</li>
-							</ul>
-						</CardContent>
-					</Card>
+					<ScrollAnimate delay={200}>
+						<Card className="border border-gray-200 bg-white shadow-md">
+							<CardHeader className="pt-8 pb-6">
+								<div className="mb-4 h-1 w-16 bg-blue-600" />
+								<CardTitle className="font-bold text-2xl text-gray-900">
+									OUR MANDATE
+								</CardTitle>
+							</CardHeader>
+							<CardContent className="pt-0 pb-8">
+								<ul className="list-disc space-y-3 pl-6 text-gray-600 leading-relaxed">
+									<li>
+										To ensure prompt efficient and effective service delivery to
+										our end users.
+									</li>
+									<li>
+										To remain responsive to the demands and aspirations of the
+										beneficiaries of our services.
+									</li>
+									<li>
+										To ensure quality service in all aspect of our endeavour and
+										interaction with our clients.
+									</li>
+									<li>
+										To uphold firm principles of transparency, accountability
+										and reliable service delivery.
+									</li>
+									<li>
+										To abhore all external and internal impediments inimical to
+										effective and efficient service delivery.
+									</li>
+								</ul>
+							</CardContent>
+						</Card>
+					</ScrollAnimate>
 				</section>
 			</div>
 			<Footer />

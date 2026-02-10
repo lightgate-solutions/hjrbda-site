@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 
-import { ModeToggle } from "./mode-toggle";
 import UserMenu from "./user-menu";
 
 export default function Header() {
@@ -16,14 +15,14 @@ export default function Header() {
 	] as const;
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-border/40 border-b bg-background/98 shadow-sm backdrop-blur-md">
+		<header className="sticky top-0 z-50 w-full border-gray-200 border-b bg-white/95 shadow-sm backdrop-blur-md">
 			<div className="container mx-auto flex h-20 items-center justify-between px-6">
 				<Link href="/" className="flex items-center space-x-3">
 					<div className="flex flex-col">
-						<span className="font-bold text-foreground text-xl tracking-tight">
+						<span className="font-bold text-2xl text-gray-900 tracking-tight">
 							HJRBDA
 						</span>
-						<span className="font-normal text-muted-foreground text-xs">
+						<span className="font-normal text-gray-600 text-xs">
 							Hadaija Jama'are River Basin Development Authority
 						</span>
 					</div>
@@ -34,7 +33,7 @@ export default function Header() {
 							<Link
 								key={to}
 								href={to}
-								className="border-transparent border-b-2 pb-1 font-medium text-foreground/70 text-sm transition-colors hover:border-primary/50 hover:text-foreground"
+								className="border-transparent border-b-2 pb-1 font-semibold text-gray-700 text-sm transition-colors hover:border-blue-600 hover:text-blue-600"
 							>
 								{label}
 							</Link>
@@ -42,7 +41,6 @@ export default function Header() {
 					})}
 				</nav>
 				<div className="flex items-center gap-3">
-					<ModeToggle />
 					<UserMenu />
 				</div>
 			</div>

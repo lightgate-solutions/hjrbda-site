@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/footer";
+import ScrollAnimate from "@/components/scroll-animate";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -68,44 +69,49 @@ export default function TenderPage() {
 				</div>
 
 				<div className="space-y-6">
-					{tenders.map((tender) => (
-						<Card key={tender.id} className="border-border/60 shadow-sm">
-							<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-								<CardTitle className="font-semibold text-foreground text-xl">
-									{tender.title}
-								</CardTitle>
-								<CardDescription className="mt-2">
-									Published: {new Date(tender.date).toLocaleDateString()}
-								</CardDescription>
-							</CardHeader>
-							<CardContent className="pt-6">
-								<p className="mb-6 text-muted-foreground leading-relaxed">
-									{tender.description}
-								</p>
-								<Button className="w-full md:w-auto" asChild>
-									<a href={tender.downloadUrl} download>
-										<Download className="mr-2 h-4 w-4" />
-										CLICK DOWNLOAD
-									</a>
-								</Button>
-							</CardContent>
-						</Card>
+					{tenders.map((tender, index) => (
+						<ScrollAnimate key={tender.id} delay={index * 100}>
+							<Card className="border border-gray-200 bg-white shadow-md">
+								<CardHeader className="pt-8 pb-6">
+									<div className="mb-4 h-1 w-16 bg-blue-600" />
+									<CardTitle className="font-bold text-gray-900 text-xl">
+										{tender.title}
+									</CardTitle>
+									<CardDescription className="mt-2 text-gray-600">
+										Published: {new Date(tender.date).toLocaleDateString()}
+									</CardDescription>
+								</CardHeader>
+								<CardContent className="pt-6">
+									<p className="mb-6 text-muted-foreground leading-relaxed">
+										{tender.description}
+									</p>
+									<Button className="w-full md:w-auto" asChild>
+										<a href={tender.downloadUrl} download>
+											<Download className="mr-2 h-4 w-4" />
+											CLICK DOWNLOAD
+										</a>
+									</Button>
+								</CardContent>
+							</Card>
+						</ScrollAnimate>
 					))}
 				</div>
 
-				<div className="mt-12 rounded-lg border bg-muted/50 p-6">
-					<h2 className="mb-4 font-bold text-2xl">INTRODUCTION</h2>
-					<p className="text-muted-foreground">
-						HADAIJA JAMA'ARE RIVER BASIN DEVELOPMENT AUTHORITY. 2025FY LIST OF
-						PREQUALIFIED BIDDERS FOR VARIOUS WORKS AND SERVICES.
-					</p>
-					<p className="mt-4 text-muted-foreground text-sm">
-						Interested contractors and service providers are invited to download
-						tender documents and submit their bids according to the specified
-						guidelines. All tenders must be submitted before the closing date
-						indicated in each tender document.
-					</p>
-				</div>
+				<ScrollAnimate delay={400}>
+					<div className="mt-12 rounded-lg border bg-muted/50 p-6">
+						<h2 className="mb-4 font-bold text-2xl">INTRODUCTION</h2>
+						<p className="text-muted-foreground">
+							HADAIJA JAMA'ARE RIVER BASIN DEVELOPMENT AUTHORITY. 2025FY LIST OF
+							PREQUALIFIED BIDDERS FOR VARIOUS WORKS AND SERVICES.
+						</p>
+						<p className="mt-4 text-muted-foreground text-sm">
+							Interested contractors and service providers are invited to
+							download tender documents and submit their bids according to the
+							specified guidelines. All tenders must be submitted before the
+							closing date indicated in each tender document.
+						</p>
+					</div>
+				</ScrollAnimate>
 			</div>
 			<Footer />
 		</div>

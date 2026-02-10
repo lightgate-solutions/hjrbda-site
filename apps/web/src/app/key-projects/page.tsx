@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
+import ScrollAnimate from "@/components/scroll-animate";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function KeyProjectsPage() {
@@ -77,32 +78,32 @@ export default function KeyProjectsPage() {
 				</p>
 
 				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-					{projects.map((project) => (
-						<Card
-							key={project.id}
-							className="overflow-hidden border-border/60 shadow-sm transition-shadow hover:shadow-md"
-						>
-							<div className="flex h-48 items-center justify-center border-border/40 border-b bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-900">
-								<span className="font-medium text-muted-foreground text-sm">
-									{project.title}
-								</span>
-							</div>
-							<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-								<div className="mb-2">
-									<span className="font-semibold text-primary text-xs uppercase tracking-wide">
-										{project.category}
+					{projects.map((project, index) => (
+						<ScrollAnimate key={project.id} delay={index * 75}>
+							<Card className="overflow-hidden border-border/60 shadow-sm transition-shadow hover:shadow-md">
+								<div className="flex h-48 items-center justify-center border-border/40 border-b bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-800 dark:to-slate-900">
+									<span className="font-medium text-muted-foreground text-sm">
+										{project.title}
 									</span>
 								</div>
-								<CardTitle className="font-semibold text-foreground text-xl">
-									{project.title}
-								</CardTitle>
-							</CardHeader>
-							<CardContent className="pt-6">
-								<p className="text-muted-foreground leading-relaxed">
-									{project.description}
-								</p>
-							</CardContent>
-						</Card>
+								<CardHeader className="pt-8 pb-6">
+									<div className="mb-4 h-1 w-12 bg-blue-600" />
+									<div className="mb-2">
+										<span className="font-semibold text-blue-600 text-xs uppercase tracking-wide">
+											{project.category}
+										</span>
+									</div>
+									<CardTitle className="font-bold text-gray-900 text-xl">
+										{project.title}
+									</CardTitle>
+								</CardHeader>
+								<CardContent className="pt-6">
+									<p className="text-muted-foreground leading-relaxed">
+										{project.description}
+									</p>
+								</CardContent>
+							</Card>
+						</ScrollAnimate>
 					))}
 				</div>
 			</div>

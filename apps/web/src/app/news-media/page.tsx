@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
+import ScrollAnimate from "@/components/scroll-animate";
 import {
 	Card,
 	CardContent,
@@ -94,31 +95,32 @@ export default function NewsMediaPage() {
 				</div>
 
 				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-					{newsItems.map((news) => (
-						<Card
-							key={news.id}
-							className="border-border/60 shadow-sm transition-shadow hover:shadow-md"
-						>
-							<CardHeader className="border-border/40 border-b bg-slate-50/50 dark:bg-slate-900/50">
-								<CardTitle className="font-semibold text-foreground text-lg">
-									{news.title}
-								</CardTitle>
-								<CardDescription className="mt-2">
-									By {news.author} • {new Date(news.date).toLocaleDateString()}
-								</CardDescription>
-							</CardHeader>
-							<CardContent className="pt-6">
-								<p className="mb-6 text-muted-foreground leading-relaxed">
-									{news.preview}
-								</p>
-								<Link
-									href="/news-media"
-									className="font-semibold text-primary text-sm hover:underline"
-								>
-									Read More →
-								</Link>
-							</CardContent>
-						</Card>
+					{newsItems.map((news, index) => (
+						<ScrollAnimate key={news.id} delay={index * 100}>
+							<Card className="border-border/60 shadow-sm transition-shadow hover:shadow-md">
+								<CardHeader className="pt-8 pb-6">
+									<div className="mb-4 h-1 w-12 bg-blue-600" />
+									<CardTitle className="font-bold text-gray-900 text-lg">
+										{news.title}
+									</CardTitle>
+									<CardDescription className="mt-2 text-gray-600">
+										By {news.author} •{" "}
+										{new Date(news.date).toLocaleDateString()}
+									</CardDescription>
+								</CardHeader>
+								<CardContent className="pt-6">
+									<p className="mb-6 text-muted-foreground leading-relaxed">
+										{news.preview}
+									</p>
+									<Link
+										href="/news-media"
+										className="font-semibold text-primary text-sm hover:underline"
+									>
+										Read More →
+									</Link>
+								</CardContent>
+							</Card>
+						</ScrollAnimate>
 					))}
 				</div>
 			</div>
