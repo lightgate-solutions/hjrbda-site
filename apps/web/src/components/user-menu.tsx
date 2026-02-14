@@ -42,6 +42,16 @@ export default function UserMenu() {
 					<DropdownMenuSeparator />
 					<DropdownMenuItem>{session.user.email}</DropdownMenuItem>
 					<DropdownMenuItem
+						render={
+							<Link
+								href="/admin/dashboard"
+								className="block w-full no-underline"
+							/>
+						}
+					>
+						Dashboard
+					</DropdownMenuItem>
+					<DropdownMenuItem
 						variant="destructive"
 						onClick={() => {
 							authClient.signOut({

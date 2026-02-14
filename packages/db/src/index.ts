@@ -7,3 +7,5 @@ import * as schema from "./schema";
 export const db = env.DATABASE_URL
 	? drizzle(env.DATABASE_URL, { schema })
 	: (null as unknown as ReturnType<typeof drizzle>);
+
+export * from "./schema";

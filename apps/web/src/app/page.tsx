@@ -1,3 +1,4 @@
+import { getPublishedArticles } from "@hjrbda-site/db/queries/articles";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import HeroCarousel from "@/components/hero-carousel";
@@ -11,7 +12,10 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+	const latestArticles = await getPublishedArticles({ limit: 3 });
 	return (
 		<div className="flex min-h-screen flex-col">
 			{/* Hero Carousel */}
@@ -147,59 +151,60 @@ export default function Home() {
 						</div>
 					</ScrollAnimate>
 					<div className="grid gap-8 md:grid-cols-3">
-						{[
-							{
-								id: 1,
-								title: "New Water Supply Project Launched",
-								author: "Admin",
-								date: "2025-01-15",
-								preview:
-									"The Authority has launched a new water supply project to serve rural communities...",
-							},
-							{
-								id: 2,
-								title: "Irrigation Scheme Completion",
-								author: "Admin",
-								date: "2025-01-10",
-								preview:
-									"The latest irrigation scheme has been completed, benefiting over 500 farmers...",
-							},
-							{
-								id: 3,
-								title: "Tender Announcement for 2025",
-								author: "Admin",
-								date: "2025-01-05",
-								preview:
-									"New tenders are now open for various infrastructure projects...",
-							},
-						].map((news, index) => (
-							<ScrollAnimate key={news.id} delay={index * 100}>
-								<Card className="border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-									<CardHeader className="border-gray-100 border-b pb-4">
-										<CardTitle className="font-bold text-gray-900 text-lg">
-											{news.title}
-										</CardTitle>
-										<CardDescription className="mt-2 text-gray-500 text-xs">
-											By {news.author} •{" "}
-											{new Date(news.date).toLocaleDateString()}
-										</CardDescription>
-									</CardHeader>
-									<CardContent className="pt-6">
-										<p className="mb-6 text-gray-600 leading-relaxed">
-											{news.preview}
-										</p>
-										<Button
-											className="w-full bg-blue-600 text-white hover:bg-blue-700"
-											size="sm"
-											asChild
-										>
-											<Link href="/news-media">Read More</Link>
-										</Button>
-									</CardContent>
-								</Card>
-							</ScrollAnimate>
-						))}
+						{latestArticles.length === 0 ? (
+							<div className="col-span-full rounded-md border border-gray-200 border-dashed py-12 text-center">
+								<p className="text-gray-500">No news articles yet.</p>
+								<Button
+									className="mt-4 bg-blue-600 text-white hover:bg-blue-700"
+									size="sm"
+									asChild
+								>
+									<Link href="/news-media">View News & Media</Link>
+								</Button>
+							</div>
+						) : (
+							latestArticles.map((article, index) => (
+								<ScrollAnimate key={article.id} delay={index * 100}>
+									<Card className="border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+										<CardHeader className="border-gray-100 border-b pb-4">
+											<CardTitle className="font-bold text-gray-900 text-lg">
+												{article.title}
+											</CardTitle>
+											<CardDescription className="mt-2 text-gray-500 text-xs">
+												By {article.author?.name ?? "HJRBDA"} •{" "}
+												{(article.publishedAt ?? article.createdAt)
+													? new Date(
+															article.publishedAt ?? article.createdAt,
+														).toLocaleDateString()
+													: ""}
+											</CardDescription>
+										</CardHeader>
+										<CardContent className="pt-6">
+											<p className="mb-6 line-clamp-3 text-gray-600 leading-relaxed">
+												{article.excerpt}
+											</p>
+											<Button
+												className="w-full bg-blue-600 text-white hover:bg-blue-700"
+												size="sm"
+												asChild
+											>
+												<Link href={`/news-media/${article.slug}` as never}>
+													Read More
+												</Link>
+											</Button>
+										</CardContent>
+									</Card>
+								</ScrollAnimate>
+							))
+						)}
 					</div>
+					{latestArticles.length > 0 && (
+						<div className="mt-10 text-center">
+							<Button variant="outline" size="sm" asChild>
+								<Link href="/news-media">View all news →</Link>
+							</Button>
+						</div>
+					)}
 				</div>
 			</section>
 			<section className="bg-white py-20">
