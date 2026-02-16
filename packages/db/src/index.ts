@@ -23,8 +23,10 @@ try {
 export { db };
 
 // Type guard to check if db is available
-export function isDbAvailable(): db is ReturnType<typeof drizzle> {
-	return db !== null;
+export function isDbAvailable(
+	dbValue: typeof db,
+): dbValue is ReturnType<typeof drizzle> {
+	return dbValue !== null;
 }
 
 export * from "./schema";
