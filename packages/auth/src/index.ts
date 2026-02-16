@@ -21,11 +21,20 @@ const authConfig: Parameters<typeof betterAuth>[0] = {
 };
 
 // Add database adapter only if DATABASE_URL is provided and db is available
-if (env.DATABASE_URL && db) {
-	authConfig.database = drizzleAdapter(db, {
-		provider: "pg",
-		schema: schema,
-	});
+try {
+	if (env.DATABASE_URL && env.DATABASE_URL.trim().length > 0 && db) {
+		authConfig.database = drizzleAdapter(db, {
+			provider: "pg",
+			schema: schema,
+		});
+	}
+} catch (error) {
+	// Silently fail if database adapter cannot be initialized
+	// Auth will work without database (no user persistence)
+	console.warn(
+		"[Auth] Database adapter initialization failed:",
+		error instanceof Error ? error.message : "Unknown error",
+	);
 }
 
 export const auth = betterAuth(authConfig);
