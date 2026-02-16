@@ -2,53 +2,48 @@ import Link from "next/link";
 
 export default function Footer() {
 	return (
-		<footer className="border-border/40 border-t bg-slate-900 text-slate-200">
-			<div className="container mx-auto px-6 py-16">
-				<div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-					{/* Who We Are */}
+		<footer
+			className="border-t py-12 md:py-16"
+			style={{
+				backgroundColor: "var(--hero-darker)",
+				borderColor: "rgba(255,255,255,0.08)",
+				color: "rgba(255,255,255,0.9)",
+			}}
+		>
+			<div className="container mx-auto px-4 sm:px-6">
+				<div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-12">
 					<div>
-						<h3 className="mb-6 font-semibold text-lg text-white">
-							Who We Are
+						<h3 className="mb-5 font-heading font-semibold text-h3 text-white">
+							Who we are
 						</h3>
-						<p className="text-slate-400 leading-relaxed">
-							The Hadaija Jama'are River Basin Development Authority, a
+						<p className="text-body text-white/75 leading-relaxed">
+							The Hadeija Jama&apos;are River Basin Development Authority, a
 							Parastatal of the Federal Ministry of Water Resources was
 							established to develop water resources and promote sustainable
 							development in the region.
 						</p>
 					</div>
 
-					{/* Working Hours */}
 					<div>
-						<h3 className="mb-6 font-semibold text-lg text-white">
-							Working Hours
+						<h3 className="mb-5 font-heading font-semibold text-h3 text-white">
+							Working hours
 						</h3>
-						<ul className="space-y-3 text-slate-400 text-sm">
-							<li className="flex items-center">
-								<span className="mr-2">•</span>
-								<span>Mon - Fri. : 8 AM - 4 PM</span>
-							</li>
-							<li className="flex items-center">
-								<span className="mr-2">•</span>
-								<span>Saturday : Closed</span>
-							</li>
-							<li className="flex items-center">
-								<span className="mr-2">•</span>
-								<span>Sunday : Closed</span>
-							</li>
+						<ul className="space-y-2 text-body text-white/75">
+							<li>Mon – Fri: 8 AM – 4 PM</li>
+							<li>Saturday: Closed</li>
+							<li>Sunday: Closed</li>
 						</ul>
 					</div>
 
-					{/* Our Services */}
 					<div>
-						<h3 className="mb-6 font-semibold text-lg text-white">
-							Our Services
+						<h3 className="mb-5 font-heading font-semibold text-h3 text-white">
+							Our services
 						</h3>
-						<ul className="space-y-3 text-sm">
+						<ul className="space-y-2 text-base">
 							<li>
 								<Link
 									href="/"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									Flood and Erosion Control
 								</Link>
@@ -56,7 +51,7 @@ export default function Footer() {
 							<li>
 								<Link
 									href="/"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									Land clearing and development
 								</Link>
@@ -64,7 +59,7 @@ export default function Footer() {
 							<li>
 								<Link
 									href="/"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									Sales of Agricultural Produce
 								</Link>
@@ -72,7 +67,7 @@ export default function Footer() {
 							<li>
 								<Link
 									href="/"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									Water & Plantation
 								</Link>
@@ -80,16 +75,15 @@ export default function Footer() {
 						</ul>
 					</div>
 
-					{/* Recent Posts */}
 					<div>
-						<h3 className="mb-6 font-semibold text-lg text-white">
-							Recent Posts
+						<h3 className="mb-5 font-heading font-semibold text-h3 text-white">
+							Recent posts
 						</h3>
-						<ul className="space-y-3 text-sm">
+						<ul className="space-y-2 text-body">
 							<li>
 								<Link
 									href="/news-media"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									Latest News Updates
 								</Link>
@@ -97,7 +91,7 @@ export default function Footer() {
 							<li>
 								<Link
 									href="/tender"
-									className="text-slate-400 transition-colors hover:text-white"
+									className="text-white/75 transition-colors hover:text-white"
 								>
 									New Tender Announcements
 								</Link>
@@ -106,9 +100,12 @@ export default function Footer() {
 					</div>
 				</div>
 
-				<div className="mt-12 border-slate-800 border-t pt-8 text-center">
-					<p className="text-slate-400 text-sm">
-						Copyright © HJRBDA {new Date().getFullYear()}. All Rights Reserved
+				<div
+					className="mt-10 border-t pt-8 text-center md:mt-12"
+					style={{ borderColor: "rgba(255,255,255,0.08)" }}
+				>
+					<p className="text-caption text-white/60">
+						Copyright © HJRBDA {new Date().getFullYear()}. All rights reserved.
 					</p>
 				</div>
 			</div>

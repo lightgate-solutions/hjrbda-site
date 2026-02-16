@@ -56,8 +56,10 @@ export default function SignUpForm({
 	}
 
 	return (
-		<div className="mx-auto mt-10 w-full max-w-md p-6">
-			<h1 className="mb-6 text-center font-bold text-3xl">Create Account</h1>
+		<div className="mx-auto w-full max-w-md px-6 py-16">
+			<h1 className="mb-8 text-center font-bold font-heading text-[var(--text-primary)] text-h1 tracking-tight">
+				Create account
+			</h1>
 
 			<form
 				onSubmit={(e) => {
@@ -65,7 +67,7 @@ export default function SignUpForm({
 					e.stopPropagation();
 					form.handleSubmit();
 				}}
-				className="space-y-4"
+				className="space-y-5"
 			>
 				<div>
 					<form.Field name="name">
@@ -139,10 +141,11 @@ export default function SignUpForm({
 					{(state) => (
 						<Button
 							type="submit"
-							className="w-full"
+							className="w-full font-medium text-white"
+							style={{ backgroundColor: "var(--accent)" }}
 							disabled={!state.canSubmit || state.isSubmitting}
 						>
-							{state.isSubmitting ? "Submitting..." : "Sign Up"}
+							{state.isSubmitting ? "Submitting..." : "Sign up"}
 						</Button>
 					)}
 				</form.Subscribe>
@@ -152,9 +155,10 @@ export default function SignUpForm({
 				<Button
 					variant="link"
 					onClick={onSwitchToSignIn}
-					className="text-indigo-600 hover:text-indigo-800"
+					className="font-medium hover:underline"
+					style={{ color: "var(--accent)" }}
 				>
-					Already have an account? Sign In
+					Already have an account? Sign in
 				</Button>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
+import PageIntro from "@/components/page-intro";
 import ScrollAnimate from "@/components/scroll-animate";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,41 +14,52 @@ import {
 export default function ApplyForGyesPage() {
 	return (
 		<div className="flex min-h-screen flex-col">
-			<div className="container mx-auto px-6 py-12">
-				{/* Breadcrumb */}
-				<nav className="mb-8 text-muted-foreground text-sm">
-					<Link href="/" className="transition-colors hover:text-foreground">
-						Home
-					</Link>
-					<span className="mx-2">/</span>
-					<span className="text-foreground">Apply for GYES</span>
-				</nav>
-
-				<div className="mb-12">
-					<div className="mb-3 font-semibold text-primary text-sm uppercase tracking-wider">
-						Application
-					</div>
-					<h1 className="font-bold text-4xl text-foreground tracking-tight md:text-5xl">
-						APPLY FOR GYES
-					</h1>
+			{/* Intro with accent strip — opportunity / youth focus */}
+			<div
+				className="border-b py-12 md:py-16"
+				style={{
+					backgroundColor: "var(--accent-light)",
+					borderColor: "var(--accent-muted)",
+				}}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
+					<PageIntro
+						eyebrow="Application"
+						title="Apply for GYES"
+						breadcrumbs={[
+							{ href: "/", label: "Home" },
+							{ label: "Apply for GYES" },
+						]}
+					/>
+					<p className="mt-4 max-w-2xl text-[var(--text-secondary)] text-body leading-relaxed">
+						Government Youth Employment Scheme—employment opportunities for
+						young people in water resources, agriculture, and more.
+					</p>
 				</div>
+			</div>
 
+			<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
 				<div className="mx-auto max-w-3xl">
 					<ScrollAnimate>
-						<Card className="border border-gray-200 bg-white shadow-md">
+						<Card className="card-institutional overflow-hidden">
 							<CardHeader className="pt-8 pb-6">
-								<div className="mb-4 h-1 w-16 bg-blue-600" />
-								<CardTitle className="font-bold text-2xl text-gray-900">
+								<div
+									className="mb-4 h-1 w-16 rounded-sm"
+									style={{ backgroundColor: "var(--accent)" }}
+								/>
+								<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
 									Government Youth Employment Scheme (GYES)
 								</CardTitle>
-								<CardDescription className="mt-2 text-gray-600">
+								<CardDescription className="mt-2 text-[var(--text-secondary)] text-lg">
 									Application portal for the Government Youth Employment Scheme
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-6">
 								<div>
-									<h3 className="mb-2 font-semibold text-lg">About GYES</h3>
-									<p className="text-muted-foreground">
+									<h3 className="mb-2 font-heading font-semibold text-[var(--text-primary)] text-lg">
+										About GYES
+									</h3>
+									<p className="text-[var(--text-secondary)] text-body">
 										The Government Youth Employment Scheme (GYES) is an
 										initiative designed to provide employment opportunities for
 										young people in various sectors including water resources
@@ -57,10 +69,10 @@ export default function ApplyForGyesPage() {
 								</div>
 
 								<div>
-									<h3 className="mb-2 font-semibold text-lg">
-										Eligibility Requirements
+									<h3 className="mb-2 font-heading font-semibold text-[var(--text-primary)] text-lg">
+										Eligibility requirements
 									</h3>
-									<ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+									<ul className="list-disc space-y-2 pl-6 text-[var(--text-secondary)] text-body">
 										<li>Must be between 18 and 35 years of age</li>
 										<li>
 											Must possess a minimum of SSCE or equivalent qualification
@@ -72,10 +84,10 @@ export default function ApplyForGyesPage() {
 								</div>
 
 								<div>
-									<h3 className="mb-2 font-semibold text-lg">
-										Available Positions
+									<h3 className="mb-2 font-heading font-semibold text-[var(--text-primary)] text-lg">
+										Available positions
 									</h3>
-									<ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+									<ul className="list-disc space-y-2 pl-6 text-[var(--text-secondary)] text-body">
 										<li>Water Resources Management</li>
 										<li>Agricultural Extension Services</li>
 										<li>Infrastructure Maintenance</li>
@@ -85,10 +97,10 @@ export default function ApplyForGyesPage() {
 								</div>
 
 								<div>
-									<h3 className="mb-2 font-semibold text-lg">
-										Application Process
+									<h3 className="mb-2 font-heading font-semibold text-[var(--text-primary)] text-lg">
+										Application process
 									</h3>
-									<ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+									<ol className="list-decimal space-y-2 pl-6 text-[var(--text-secondary)] text-body">
 										<li>Fill out the online application form</li>
 										<li>Upload required documents (CV, certificates, etc.)</li>
 										<li>Submit your application</li>
@@ -98,13 +110,24 @@ export default function ApplyForGyesPage() {
 								</div>
 
 								<div className="pt-4">
-									<Button size="lg" className="w-full" asChild>
-										<Link href="/apply-for-gyes">Start Application</Link>
+									<Button
+										size="lg"
+										className="w-full font-medium text-white"
+										style={{ backgroundColor: "var(--accent)" }}
+										asChild
+									>
+										<Link href="/apply-for-gyes">Start application</Link>
 									</Button>
 								</div>
 
-								<div className="rounded-lg border bg-muted/50 p-4">
-									<p className="text-muted-foreground text-sm">
+								<div
+									className="rounded-lg border p-4"
+									style={{
+										borderColor: "var(--card-border)",
+										backgroundColor: "var(--section-alt)",
+									}}
+								>
+									<p className="text-[var(--text-secondary)] text-body">
 										<strong>Note:</strong> Application forms are currently being
 										prepared. Please check back soon or contact our office for
 										more information.

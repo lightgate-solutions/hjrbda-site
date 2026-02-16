@@ -20,16 +20,18 @@ export default async function EditArticlePage({
 	}
 
 	return (
-		<div className="container mx-auto max-w-4xl px-4 py-8">
+		<div className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 md:py-24">
 			<div className="mb-8">
 				<Button variant="ghost" size="sm" asChild className="mb-4">
 					<Link href="/admin/news">
 						<ArrowLeft className="mr-2 h-4 w-4" />
-						Back to News
+						Back to news
 					</Link>
 				</Button>
-				<h1 className="mb-2 font-bold text-3xl">Edit Article</h1>
-				<p className="text-muted-foreground">
+				<h1 className="mb-2 font-bold font-heading text-2xl text-[var(--text-primary)] tracking-tight">
+					Edit article
+				</h1>
+				<p className="text-[var(--text-secondary)] text-body">
 					Update the article details below
 				</p>
 			</div>

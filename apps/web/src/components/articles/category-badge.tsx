@@ -11,9 +11,13 @@ export function CategoryBadge({
 	return (
 		<span
 			className={cn(
-				"inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 font-medium text-primary text-xs",
+				"inline-flex items-center rounded-md px-2 py-0.5 font-medium text-xs",
 				className,
 			)}
+			style={{
+				backgroundColor: "var(--accent-light)",
+				color: "var(--accent)",
+			}}
 		>
 			{category}
 		</span>

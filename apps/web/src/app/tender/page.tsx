@@ -1,6 +1,6 @@
 import { Download } from "lucide-react";
-import Link from "next/link";
 import Footer from "@/components/footer";
+import PageIntro from "@/components/page-intro";
 import ScrollAnimate from "@/components/scroll-animate";
 import { Button } from "@/components/ui/button";
 import {
@@ -49,46 +49,59 @@ export default function TenderPage() {
 
 	return (
 		<div className="flex min-h-screen flex-col">
-			<div className="container mx-auto px-6 py-12">
-				{/* Breadcrumb */}
-				<nav className="mb-8 text-muted-foreground text-sm">
-					<Link href="/" className="transition-colors hover:text-foreground">
-						Home
-					</Link>
-					<span className="mx-2">/</span>
-					<span className="text-foreground">Tender News</span>
-				</nav>
-
-				<div className="mb-12">
-					<div className="mb-3 font-semibold text-primary text-sm uppercase tracking-wider">
-						Tenders
-					</div>
-					<h1 className="font-bold text-4xl text-foreground tracking-tight md:text-5xl">
-						TENDER NEWS
-					</h1>
+			{/* Intro with accent strip */}
+			<div
+				className="border-b py-12 md:py-16"
+				style={{
+					backgroundColor: "var(--section-alt)",
+					borderColor: "var(--card-border)",
+				}}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
+					<PageIntro
+						eyebrow="Tenders"
+						title="Tender news"
+						breadcrumbs={[
+							{ href: "/", label: "Home" },
+							{ label: "Tender news" },
+						]}
+					/>
+					<p className="mt-4 max-w-2xl text-[var(--text-secondary)] text-body leading-relaxed">
+						Open tender opportunities and invitations for qualified contractors
+						and service providers.
+					</p>
 				</div>
+			</div>
 
+			<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
 				<div className="space-y-6">
 					{tenders.map((tender, index) => (
 						<ScrollAnimate key={tender.id} delay={index * 100}>
-							<Card className="border border-gray-200 bg-white shadow-md">
+							<Card className="card-institutional overflow-hidden">
 								<CardHeader className="pt-8 pb-6">
-									<div className="mb-4 h-1 w-16 bg-blue-600" />
-									<CardTitle className="font-bold text-gray-900 text-xl">
+									<div
+										className="mb-4 h-1 w-16 rounded-sm"
+										style={{ backgroundColor: "var(--accent)" }}
+									/>
+									<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
 										{tender.title}
 									</CardTitle>
-									<CardDescription className="mt-2 text-gray-600">
+									<CardDescription className="mt-2 text-[var(--text-secondary)] text-body">
 										Published: {new Date(tender.date).toLocaleDateString()}
 									</CardDescription>
 								</CardHeader>
 								<CardContent className="pt-6">
-									<p className="mb-6 text-muted-foreground leading-relaxed">
+									<p className="mb-6 text-[var(--text-secondary)] text-body leading-relaxed">
 										{tender.description}
 									</p>
-									<Button className="w-full md:w-auto" asChild>
+									<Button
+										className="w-full font-medium text-white md:w-auto"
+										style={{ backgroundColor: "var(--accent)" }}
+										asChild
+									>
 										<a href={tender.downloadUrl} download>
 											<Download className="mr-2 h-4 w-4" />
-											CLICK DOWNLOAD
+											Download
 										</a>
 									</Button>
 								</CardContent>
@@ -98,13 +111,21 @@ export default function TenderPage() {
 				</div>
 
 				<ScrollAnimate delay={400}>
-					<div className="mt-12 rounded-lg border bg-muted/50 p-6">
-						<h2 className="mb-4 font-bold text-2xl">INTRODUCTION</h2>
-						<p className="text-muted-foreground">
-							HADAIJA JAMA'ARE RIVER BASIN DEVELOPMENT AUTHORITY. 2025FY LIST OF
-							PREQUALIFIED BIDDERS FOR VARIOUS WORKS AND SERVICES.
+					<div
+						className="mt-12 rounded-lg border p-6"
+						style={{
+							borderColor: "var(--card-border)",
+							backgroundColor: "var(--section-alt)",
+						}}
+					>
+						<h2 className="mb-4 font-bold font-heading text-[var(--text-primary)] text-xl">
+							Introduction
+						</h2>
+						<p className="text-[var(--text-secondary)] text-body">
+							HADAIJA JAMA&apos;ARE RIVER BASIN DEVELOPMENT AUTHORITY. 2025FY
+							LIST OF PREQUALIFIED BIDDERS FOR VARIOUS WORKS AND SERVICES.
 						</p>
-						<p className="mt-4 text-muted-foreground text-sm">
+						<p className="mt-4 text-[var(--text-muted)] text-body">
 							Interested contractors and service providers are invited to
 							download tender documents and submit their bids according to the
 							specified guidelines. All tenders must be submitted before the

@@ -52,18 +52,24 @@ export default async function AdminNewsPage({
 	if (category) queryParams.category = category;
 
 	return (
-		<div className="container mx-auto px-4 py-8">
+		<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
 			<div className="mb-8 flex items-center justify-between">
 				<div>
-					<h1 className="mb-2 font-bold text-3xl">Manage News</h1>
-					<p className="text-muted-foreground">
+					<h1 className="mb-2 font-bold font-heading text-[var(--text-primary)] text-h1 tracking-tight">
+						Manage news
+					</h1>
+					<p className="text-[var(--text-secondary)] text-base">
 						Create, edit, and manage news articles
 					</p>
 				</div>
-				<Button asChild>
+				<Button
+					className="font-medium text-white"
+					style={{ backgroundColor: "var(--accent)" }}
+					asChild
+				>
 					<Link href="/admin/news/new">
 						<Plus className="mr-2 h-4 w-4" />
-						New Article
+						New article
 					</Link>
 				</Button>
 			</div>
@@ -71,7 +77,7 @@ export default async function AdminNewsPage({
 			<div className="mb-6">
 				<Suspense
 					fallback={
-						<div className="text-muted-foreground text-sm">Loading...</div>
+						<div className="text-[var(--text-muted)] text-sm">Loading...</div>
 					}
 				>
 					<ArticleSearch placeholder="Search articles..." />
@@ -89,10 +95,14 @@ export default async function AdminNewsPage({
 					icon={<FileText className="h-16 w-16" />}
 					action={
 						!search ? (
-							<Button asChild>
+							<Button
+								className="font-medium text-white"
+								style={{ backgroundColor: "var(--accent)" }}
+								asChild
+							>
 								<Link href="/admin/news/new">
 									<Plus className="mr-2 h-4 w-4" />
-									Create Article
+									Create article
 								</Link>
 							</Button>
 						) : null
@@ -102,7 +112,10 @@ export default async function AdminNewsPage({
 				<>
 					<div className="mb-6 grid gap-4">
 						{articles.map((article) => (
-							<Card key={article.id}>
+							<Card
+								key={article.id}
+								className="card-institutional overflow-hidden"
+							>
 								<CardHeader>
 									<div className="flex items-start justify-between gap-4">
 										<div className="flex-1">
@@ -114,19 +127,35 @@ export default async function AdminNewsPage({
 													className={`rounded px-2 py-1 text-xs ${
 														article.status === "published"
 															? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-															: "bg-muted text-muted-foreground"
+															: ""
 													}`}
+													style={
+														article.status !== "published"
+															? {
+																	backgroundColor: "var(--section-alt)",
+																	color: "var(--text-muted)",
+																}
+															: undefined
+													}
 												>
 													{article.status}
 												</span>
 												{article.featured && (
-													<span className="rounded bg-primary/10 px-2 py-1 text-primary text-xs">
+													<span
+														className="rounded px-2 py-1 font-medium text-xs"
+														style={{
+															backgroundColor: "var(--accent-light)",
+															color: "var(--accent)",
+														}}
+													>
 														Featured
 													</span>
 												)}
 											</div>
-											<CardTitle className="text-xl">{article.title}</CardTitle>
-											<CardDescription className="mt-1 line-clamp-2">
+											<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
+												{article.title}
+											</CardTitle>
+											<CardDescription className="mt-1 line-clamp-2 text-[var(--text-secondary)] text-body">
 												{article.excerpt}
 											</CardDescription>
 										</div>
@@ -144,7 +173,7 @@ export default async function AdminNewsPage({
 										</div>
 									</div>
 								</CardHeader>
-								<CardFooter className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
+								<CardFooter className="flex flex-wrap items-center gap-4 text-[var(--text-muted)] text-base">
 									<span>By {article.author?.name ?? "Unknown"}</span>
 									<span>•</span>
 									<span>

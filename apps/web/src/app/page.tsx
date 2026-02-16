@@ -16,24 +16,30 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
 	const latestArticles = await getPublishedArticles({ limit: 3 });
+
 	return (
 		<div className="flex min-h-screen flex-col">
-			{/* Hero Carousel */}
 			<HeroCarousel />
 
-			{/* Welcome Section */}
-			<section className="bg-gradient-to-b from-white to-gray-50 py-20">
-				<div className="container mx-auto px-6">
+			{/* Welcome */}
+			<section
+				className="py-16 md:py-24"
+				style={{ backgroundColor: "var(--section-warm)" }}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
 					<ScrollAnimate>
-						<div className="mx-auto max-w-4xl text-center">
-							<div className="mb-4 font-semibold text-blue-600 text-sm uppercase tracking-[0.15em]">
+						<div className="mx-auto max-w-3xl text-center">
+							<p
+								className="mb-3 font-medium text-sm uppercase tracking-[0.2em]"
+								style={{ color: "var(--accent)" }}
+							>
 								Welcome
-							</div>
-							<h2 className="mb-6 font-bold text-5xl text-gray-900 tracking-tight md:text-6xl">
-								WELCOME TO HJRBDA
+							</p>
+							<h2 className="mb-5 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+								Welcome to HJRBDA
 							</h2>
-							<p className="mx-auto font-light text-gray-600 text-xl leading-relaxed md:text-2xl">
-								The Hadaija Jama'are River Basin Development Authority is
+							<p className="mx-auto font-normal text-[var(--text-secondary)] text-lg leading-relaxed md:text-xl">
+								The Hadeija Jama&apos;are River Basin Development Authority is
 								committed to the sustainable development and management of water
 								resources in the region.
 							</p>
@@ -42,121 +48,143 @@ export default async function Home() {
 				</div>
 			</section>
 
-			{/* Vision, Mission, Mandate Blocks */}
-			<section className="bg-white py-20">
-				<div className="container mx-auto px-6">
+			{/* Vision, Mission, Mandate — editorial block */}
+			<section
+				className="py-16 md:py-24"
+				style={{ backgroundColor: "var(--section-white)" }}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
 					<ScrollAnimate>
-						<div className="mb-16 text-center">
-							<div className="mb-4 font-semibold text-blue-600 text-sm uppercase tracking-[0.15em]">
-								Our Foundation
-							</div>
-							<h2 className="font-bold text-4xl text-gray-900 tracking-tight md:text-5xl">
+						<div className="mb-12 text-center md:mb-16">
+							<p
+								className="mb-3 font-medium text-base uppercase tracking-[0.2em]"
+								style={{ color: "var(--accent)" }}
+							>
+								Our foundation
+							</p>
+							<h2 className="font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
 								Vision, Mission & Mandate
 							</h2>
 						</div>
 					</ScrollAnimate>
-					<div className="grid gap-8 md:grid-cols-3">
+					<div className="grid gap-10 md:grid-cols-3 md:gap-12">
 						<ScrollAnimate delay={0}>
-							<Card className="group border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-								<CardHeader className="pt-8 pb-6">
-									<div className="mb-4 h-1 w-16 bg-blue-600" />
-									<CardTitle className="font-bold text-2xl text-gray-900">
-										Our Vision
-									</CardTitle>
-								</CardHeader>
-								<CardContent className="pt-0 pb-8">
-									<p className="mb-8 text-gray-600 leading-relaxed">
+							<div className="flex gap-4">
+								<div
+									className="mt-1 h-auto w-1 shrink-0 self-stretch rounded-full"
+									style={{ backgroundColor: "var(--accent)" }}
+									aria-hidden
+								/>
+								<div>
+									<h3 className="mb-3 font-bold font-heading text-[var(--text-primary)] text-h3">
+										Vision
+									</h3>
+									<p className="text-[var(--text-secondary)] text-body leading-relaxed">
 										To ensure effective and efficient implementation of the
-										nation's water resources development policies, through
+										nation&apos;s water resources development policies, through
 										optimal exploitation, conservation and overall development
-										of the nation's abundant surface and underground water
-										resources potentials...
+										of the nation&apos;s abundant surface and underground water
+										resources potentials, with a view to improving the quality
+										of life of every Nigerian particularly those within the
+										Hadeija Jama&apos;are Basin of the River Niger.
 									</p>
-									<Button
-										className="w-full bg-blue-600 text-white transition-colors hover:bg-blue-700"
-										asChild
-									>
-										<Link href="/about#vision">READ MORE</Link>
-									</Button>
-								</CardContent>
-							</Card>
+								</div>
+							</div>
 						</ScrollAnimate>
-
 						<ScrollAnimate delay={100}>
-							<Card className="group border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-								<CardHeader className="pt-8 pb-6">
-									<div className="mb-4 h-1 w-16 bg-blue-600" />
-									<CardTitle className="font-bold text-2xl text-gray-900">
-										Our Mission
-									</CardTitle>
-								</CardHeader>
-								<CardContent className="pt-0 pb-8">
-									<p className="mb-8 text-gray-600 leading-relaxed">
+							<div className="flex gap-4">
+								<div
+									className="mt-1 h-auto w-1 shrink-0 self-stretch rounded-full"
+									style={{ backgroundColor: "var(--accent)" }}
+									aria-hidden
+								/>
+								<div>
+									<h3 className="mb-3 font-bold font-heading text-[var(--text-primary)] text-h3">
+										Mission
+									</h3>
+									<p className="text-[var(--text-secondary)] text-body leading-relaxed">
 										To serve as a viable and veritable implementing agency of
 										Government in the effective utilization of all the water
-										resources potentials with the Lower Basin of the River Niger
-										with a view to improving the quality of lives of the
-										people...
+										resources potentials with the Hadeija Jama&apos;are Basin
+										with a view to improving the quality of lives of the people
+										through development of irrigation agronomy, bulk and potable
+										water supply and other water shed management project.
 									</p>
-									<Button
-										className="w-full bg-blue-600 text-white transition-colors hover:bg-blue-700"
-										asChild
-									>
-										<Link href="/about#mission">READ MORE</Link>
-									</Button>
-								</CardContent>
-							</Card>
+								</div>
+							</div>
 						</ScrollAnimate>
-
 						<ScrollAnimate delay={200}>
-							<Card className="group border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-								<CardHeader className="pt-8 pb-6">
-									<div className="mb-4 h-1 w-16 bg-blue-600" />
-									<CardTitle className="font-bold text-2xl text-gray-900">
-										Our Mandate
-									</CardTitle>
-								</CardHeader>
-								<CardContent className="pt-0 pb-8">
-									<p className="mb-8 text-gray-600 leading-relaxed">
-										To supply water from the Authority's completed storage
-										schemes to all users for a fee to ensure prompt efficient
-										and effective service delivery to our end users. To remain
-										responsive to the demands and aspirations of the
-										beneficiaries...
+							<div className="flex gap-4">
+								<div
+									className="mt-1 h-auto w-1 shrink-0 self-stretch rounded-full"
+									style={{ backgroundColor: "var(--accent)" }}
+									aria-hidden
+								/>
+								<div>
+									<h3 className="mb-3 font-bold font-heading text-[var(--text-primary)] text-h3">
+										Mandate
+									</h3>
+									<p className="text-[var(--text-secondary)] text-body leading-relaxed">
+										To ensure prompt efficient and effective service delivery to
+										our end users; to remain responsive to the demands and
+										aspirations of the beneficiaries; to ensure quality service
+										in all aspects of our endeavour and interaction with our
+										clients; to uphold firm principles of transparency,
+										accountability and reliable service delivery.
 									</p>
-									<Button
-										className="w-full bg-blue-600 text-white transition-colors hover:bg-blue-700"
-										asChild
-									>
-										<Link href="/about#mandate">READ MORE</Link>
-									</Button>
-								</CardContent>
-							</Card>
+								</div>
+							</div>
 						</ScrollAnimate>
 					</div>
+					<ScrollAnimate delay={300}>
+						<p className="mt-10 text-center md:mt-12">
+							<Link
+								href="/about"
+								className="font-medium text-body hover:underline"
+								style={{ color: "var(--accent)" }}
+							>
+								Full Vision, Mission & Mandate on About →
+							</Link>
+						</p>
+					</ScrollAnimate>
 				</div>
 			</section>
 
 			{/* Latest News */}
-			<section className="bg-gray-50 py-20">
-				<div className="container mx-auto px-6">
+			<section
+				className="py-16 md:py-24"
+				style={{ backgroundColor: "var(--section-alt)" }}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
 					<ScrollAnimate>
-						<div className="mb-16 text-center">
-							<div className="mb-4 font-semibold text-blue-600 text-sm uppercase tracking-[0.15em]">
+						<div className="mb-12 text-center md:mb-16">
+							<p
+								className="mb-3 font-medium text-sm uppercase tracking-[0.2em]"
+								style={{ color: "var(--accent)" }}
+							>
 								Updates
-							</div>
-							<h2 className="font-bold text-4xl text-gray-900 tracking-tight md:text-5xl">
+							</p>
+							<h2 className="font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
 								Latest News
 							</h2>
 						</div>
 					</ScrollAnimate>
-					<div className="grid gap-8 md:grid-cols-3">
+					<div className="grid gap-6 md:grid-cols-3 md:gap-8">
 						{latestArticles.length === 0 ? (
-							<div className="col-span-full rounded-md border border-gray-200 border-dashed py-12 text-center">
-								<p className="text-gray-500">No news articles yet.</p>
+							<div
+								className="col-span-full rounded-xl border border-dashed py-12 text-center"
+								style={{
+									borderColor: "var(--card-border)",
+									backgroundColor: "var(--card-bg)",
+								}}
+							>
+								<p className="text-[var(--text-muted)] text-base">
+									No news articles yet.
+								</p>
 								<Button
-									className="mt-4 bg-blue-600 text-white hover:bg-blue-700"
+									className="mt-4 rounded-lg font-medium text-white shadow-md hover:shadow-lg"
 									size="sm"
+									style={{ backgroundColor: "var(--accent)" }}
 									asChild
 								>
 									<Link href="/news-media">View News & Media</Link>
@@ -165,12 +193,15 @@ export default async function Home() {
 						) : (
 							latestArticles.map((article, index) => (
 								<ScrollAnimate key={article.id} delay={index * 100}>
-									<Card className="border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-										<CardHeader className="border-gray-100 border-b pb-4">
-											<CardTitle className="font-bold text-gray-900 text-lg">
+									<Card className="card-institutional overflow-hidden">
+										<CardHeader
+											className="border-b pb-4"
+											style={{ borderColor: "var(--card-border)" }}
+										>
+											<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
 												{article.title}
 											</CardTitle>
-											<CardDescription className="mt-2 text-gray-500 text-xs">
+											<CardDescription className="mt-2 text-[var(--text-muted)] text-sm">
 												By {article.author?.name ?? "HJRBDA"} •{" "}
 												{(article.publishedAt ?? article.createdAt)
 													? new Date(
@@ -180,18 +211,16 @@ export default async function Home() {
 											</CardDescription>
 										</CardHeader>
 										<CardContent className="pt-6">
-											<p className="mb-6 line-clamp-3 text-gray-600 leading-relaxed">
+											<p className="mb-4 line-clamp-3 text-[var(--text-secondary)] text-description leading-relaxed">
 												{article.excerpt}
 											</p>
-											<Button
-												className="w-full bg-blue-600 text-white hover:bg-blue-700"
-												size="sm"
-												asChild
+											<Link
+												href={`/news-media/${article.slug}` as never}
+												className="font-medium hover:underline"
+												style={{ color: "var(--accent)" }}
 											>
-												<Link href={`/news-media/${article.slug}` as never}>
-													Read More
-												</Link>
-											</Button>
+												Read more →
+											</Link>
 										</CardContent>
 									</Card>
 								</ScrollAnimate>
@@ -200,36 +229,53 @@ export default async function Home() {
 					</div>
 					{latestArticles.length > 0 && (
 						<div className="mt-10 text-center">
-							<Button variant="outline" size="sm" asChild>
+							<Button
+								variant="outline"
+								size="sm"
+								className="rounded-lg border-2 font-medium transition-colors hover:bg-[var(--accent-light)]"
+								style={{
+									borderColor: "var(--accent)",
+									color: "var(--accent)",
+								}}
+								asChild
+							>
 								<Link href="/news-media">View all news →</Link>
 							</Button>
 						</div>
 					)}
 				</div>
 			</section>
-			<section className="bg-white py-20">
-				<div className="container mx-auto px-6">
+
+			{/* Our Services */}
+			<section
+				className="py-16 md:py-24"
+				style={{ backgroundColor: "var(--section-white)" }}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
 					<ScrollAnimate>
-						<div className="mb-16 text-center">
-							<div className="mb-4 font-semibold text-blue-600 text-sm uppercase tracking-[0.15em]">
-								What We Do
-							</div>
-							<h2 className="font-bold text-4xl text-gray-900 tracking-tight md:text-5xl">
-								OUR SERVICES
+						<div className="mb-12 text-center md:mb-16">
+							<p
+								className="mb-3 font-medium text-sm uppercase tracking-[0.2em]"
+								style={{ color: "var(--warm-accent)" }}
+							>
+								What we do
+							</p>
+							<h2 className="font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+								Our Services
 							</h2>
 						</div>
 					</ScrollAnimate>
-					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+					<div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
 						{[
 							{
 								id: "surveying",
-								title: "Surveying/Hydromet Equipment",
+								title: "Surveying / Hydromet Equipment",
 								description:
 									"Total Station, Global Navigation Satellites Systems (GNSS) receiver, Apache 5 kit for Bathymetric survey, DJI Phantom 4 Pro Quad Copter Drone, Automatic level, Vale port current meter and Radar Depth Sensor.",
 							},
 							{
 								id: "dam-construction",
-								title: "Dam/Weir Construction",
+								title: "Dam / Weir Construction",
 								description:
 									"Dam, Weir and Dyke Construction stand at the centre of the function of the HJRBDA.",
 							},
@@ -243,31 +289,34 @@ export default async function Home() {
 								id: "agricultural",
 								title: "Agricultural Produce",
 								description:
-									"The HJRBDA also cultivates crops and rear livestocks which are sold to generate IGR to the government",
+									"The HJRBDA also cultivates crops and rears livestock which are sold to generate IGR to the government.",
 							},
 							{
 								id: "ppp",
-								title: "Public-Private Partnership",
+								title: "Public–Private Partnership",
 								description:
-									"Public - Private Partnership arrangement for harvesting and processing of dry season paddy produced by the Water Users' Association (WUA).",
+									"Public–Private Partnership arrangement for harvesting and processing of dry season paddy produced by the Water Users' Association (WUA).",
 							},
 							{
 								id: "guest-house",
 								title: "Guest House",
 								description:
-									"The HJRBDA also construct Guest Houses for accommodation purposes",
+									"The HJRBDA also constructs Guest Houses for accommodation purposes.",
 							},
 						].map((service, index) => (
 							<ScrollAnimate key={service.id} delay={index * 50}>
-								<Card className="group border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-									<CardHeader className="pt-8 pb-6">
-										<div className="mb-4 h-1 w-12 bg-blue-600" />
-										<CardTitle className="font-bold text-gray-900 text-lg">
+								<Card className="card-institutional overflow-hidden">
+									<CardHeader className="pt-8 pb-4 md:pb-6">
+										<div
+											className="mb-4 h-1 w-12 rounded-sm"
+											style={{ backgroundColor: "var(--accent)" }}
+										/>
+										<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
 											{service.title}
 										</CardTitle>
 									</CardHeader>
 									<CardContent className="pt-0 pb-8">
-										<p className="text-gray-600 leading-relaxed">
+										<p className="text-[var(--text-secondary)] text-description leading-relaxed">
 											{service.description}
 										</p>
 									</CardContent>
@@ -277,17 +326,25 @@ export default async function Home() {
 					</div>
 				</div>
 			</section>
-			<section className="bg-gradient-to-b from-gray-50 to-white py-20">
-				<div className="container mx-auto px-6">
+
+			{/* Recent Projects */}
+			<section
+				className="py-16 md:py-24"
+				style={{ backgroundColor: "var(--section-warm)" }}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
 					<ScrollAnimate>
-						<div className="mb-12 text-center">
-							<div className="mb-4 font-semibold text-blue-600 text-sm uppercase tracking-[0.15em]">
-								Our Work
-							</div>
-							<h2 className="mb-6 font-bold text-4xl text-gray-900 tracking-tight md:text-5xl">
-								RECENT PROJECTS
+						<div className="mb-10 text-center md:mb-12">
+							<p
+								className="mb-3 font-medium text-sm uppercase tracking-[0.2em]"
+								style={{ color: "var(--accent)" }}
+							>
+								Our work
+							</p>
+							<h2 className="mb-5 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+								Recent Projects
 							</h2>
-							<p className="mx-auto max-w-3xl font-light text-gray-600 text-xl leading-relaxed">
+							<p className="mx-auto max-w-3xl text-[var(--text-secondary)] text-lg leading-relaxed md:text-xl">
 								The HJRBDA undertakes numerous projects as presented in its
 								yearly appropriation. These projects range from dam
 								construction, construction of irrigation projects, water supply
@@ -295,7 +352,7 @@ export default async function Home() {
 							</p>
 						</div>
 					</ScrollAnimate>
-					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+					<div className="grid gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
 						{[
 							{
 								id: "irrigation",
@@ -319,14 +376,23 @@ export default async function Home() {
 							},
 						].map((project, index) => (
 							<ScrollAnimate key={project.id} delay={index * 75}>
-								<Card className="overflow-hidden border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-									<div className="flex h-48 items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
-										<span className="font-semibold text-blue-700 text-sm">
+								<Card className="card-institutional overflow-hidden">
+									<div
+										className="flex h-44 items-center justify-center md:h-48"
+										style={{ backgroundColor: "var(--accent-muted)" }}
+									>
+										<span
+											className="text-center font-medium text-sm"
+											style={{ color: "var(--accent)" }}
+										>
 											{project.title}
 										</span>
 									</div>
-									<CardHeader className="bg-white">
-										<CardTitle className="font-bold text-base text-gray-900">
+									<CardHeader
+										className="pt-6"
+										style={{ backgroundColor: "var(--card-bg)" }}
+									>
+										<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-lg">
 											{project.title}
 										</CardTitle>
 									</CardHeader>
@@ -338,10 +404,11 @@ export default async function Home() {
 						<div className="mt-12 text-center">
 							<Button
 								size="lg"
-								className="bg-blue-600 px-10 py-6 font-semibold text-lg text-white hover:bg-blue-700"
+								className="rounded-lg px-8 py-5 font-semibold text-white shadow-md transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-lg md:px-10 md:py-6 md:text-lg"
+								style={{ backgroundColor: "var(--accent)" }}
 								asChild
 							>
-								<Link href="/key-projects">SHOW MORE</Link>
+								<Link href="/key-projects">Show more projects</Link>
 							</Button>
 						</div>
 					</ScrollAnimate>

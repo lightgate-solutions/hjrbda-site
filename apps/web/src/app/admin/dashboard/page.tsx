@@ -42,31 +42,42 @@ export default async function AdminDashboardPage() {
 
 		return (
 			<div className="flex min-h-screen flex-col">
-				<div className="container mx-auto px-6 py-12">
-					<nav className="mb-8 text-muted-foreground text-sm">
-						<Link href="/" className="transition-colors hover:text-foreground">
+				<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
+					<nav
+						className="mb-8 text-[var(--text-muted)] text-caption"
+						aria-label="Breadcrumb"
+					>
+						<Link
+							href="/"
+							className="transition-colors hover:text-[var(--text-primary)]"
+						>
 							Home
 						</Link>
 						<span className="mx-2">/</span>
 						<Link
 							href="/admin/dashboard"
-							className="transition-colors hover:text-foreground"
+							className="transition-colors hover:text-[var(--text-primary)]"
 						>
 							Admin
 						</Link>
 						<span className="mx-2">/</span>
-						<span className="text-foreground">Dashboard</span>
+						<span className="text-[var(--text-primary)]">Dashboard</span>
 					</nav>
 
 					<div className="mb-10">
-						<div className="mb-3 flex items-center gap-2 font-semibold text-primary text-sm uppercase tracking-wider">
+						<div
+							className="mb-3 flex items-center gap-2 font-semibold text-caption uppercase tracking-wider"
+							style={{ color: "var(--accent)" }}
+						>
 							<LayoutDashboard className="h-4 w-4" />
 							Dashboard
 						</div>
-						<h1 className="font-bold text-4xl text-foreground tracking-tight md:text-5xl">
+						<h1 className="font-bold font-heading text-[var(--text-primary)] text-h1 tracking-tight">
 							Welcome back, {session.user.name ?? "User"}
 						</h1>
-						<p className="mt-2 text-muted-foreground">{session.user.email}</p>
+						<p className="mt-2 text-[var(--text-muted)] text-body">
+							{session.user.email}
+						</p>
 					</div>
 
 					<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -77,21 +88,28 @@ export default async function AdminDashboardPage() {
 									key={item.href}
 									href={item.href as "/admin/news" | "/news-media"}
 								>
-									<Card className="h-full border border-gray-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+									<Card className="card-institutional h-full overflow-hidden">
 										<CardHeader className="pb-2">
-											<div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
+											<div
+												className="mb-3 flex h-10 w-10 items-center justify-center rounded-md"
+												style={{
+													backgroundColor: "var(--accent-light)",
+													color: "var(--accent)",
+												}}
+											>
 												<Icon className="h-5 w-5" />
 											</div>
-											<CardTitle className="font-bold text-gray-900 text-lg">
+											<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
 												{item.title}
 											</CardTitle>
-											<CardDescription className="text-gray-600">
+											<CardDescription className="text-[var(--text-secondary)] text-body">
 												{item.description}
 											</CardDescription>
 										</CardHeader>
 										<CardContent className="pt-0">
 											<Button
-												className="w-full bg-blue-600 text-white hover:bg-blue-700"
+												className="w-full font-medium text-white"
+												style={{ backgroundColor: "var(--accent)" }}
 												size="sm"
 											>
 												Open
@@ -103,8 +121,14 @@ export default async function AdminDashboardPage() {
 						})}
 					</div>
 
-					<div className="mt-12 rounded-md border border-gray-200 border-dashed bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-900/20">
-						<div className="flex items-center gap-2 text-muted-foreground text-sm">
+					<div
+						className="mt-12 rounded-md border border-dashed p-6"
+						style={{
+							borderColor: "var(--card-border)",
+							backgroundColor: "var(--section-alt)",
+						}}
+					>
+						<div className="flex items-center gap-2 text-[var(--text-muted)] text-base">
 							<Settings className="h-4 w-4" />
 							<span>
 								More options (e.g. profile, settings) can be added here.

@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 
-import { Urbanist } from "next/font/google";
+import { Merriweather, Open_Sans } from "next/font/google";
 
 import "../index.css";
 import Header from "@/components/header";
 import Providers from "@/components/providers";
 
-const urbanist = Urbanist({
-	variable: "--font-urbanist",
+const merriweather = Merriweather({
+	variable: "--font-merriweather",
 	subsets: ["latin"],
-	weight: ["300", "400", "500", "600", "700", "800", "900"],
+	weight: ["400", "700"],
+	display: "swap",
+});
+
+const openSans = Open_Sans({
+	variable: "--font-open-sans",
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,8 +32,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${urbanist.variable} font-sans antialiased`}>
+		<html lang="en" className={`${merriweather.variable} ${openSans.variable}`}>
+			<body className="font-sans antialiased">
 				<Providers>
 					<div className="flex min-h-screen flex-col">
 						<Header />

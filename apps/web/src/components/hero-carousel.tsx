@@ -16,7 +16,7 @@ const slides: CarouselSlide[] = [
 		id: 1,
 		title: "Water Resources Development",
 		description:
-			"Promoting sustainable water resource management in the Hadaija Jama'are region",
+			"Promoting sustainable water resource management in the Hadeija Jama'are region",
 		imageUrl: "/placeholder-hero-1.jpg",
 	},
 	{
@@ -56,8 +56,14 @@ export default function HeroCarousel() {
 	};
 
 	return (
-		<div className="relative w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-			<div className="relative h-[550px] md:h-[650px]">
+		<div
+			className="relative w-full overflow-hidden"
+			style={{
+				background:
+					"linear-gradient(160deg, var(--hero-darker) 0%, var(--hero-dark) 45%, #0f2c2e 100%)",
+			}}
+		>
+			<div className="relative h-[420px] sm:h-[480px] md:h-[550px] lg:h-[620px]">
 				{slides.map((slide, index) => (
 					<div
 						key={slide.id}
@@ -66,53 +72,60 @@ export default function HeroCarousel() {
 						}`}
 					>
 						<div
-							className="h-full w-full bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/95"
+							className="h-full w-full"
 							style={{
 								backgroundImage: `url(${slide.imageUrl})`,
 								backgroundSize: "cover",
 								backgroundPosition: "center",
 							}}
 						>
-							{/* Professional overlay */}
-							<div className="flex h-full items-center justify-center bg-gradient-to-r from-slate-900/80 via-slate-800/70 to-slate-900/80">
-								<div className="container mx-auto px-6 text-center">
-									<div className="mb-6 font-bold text-4xl text-white tracking-tight md:text-5xl lg:text-6xl">
+							<div
+								className="flex h-full items-center justify-center px-4 sm:px-6"
+								style={{
+									background:
+										"linear-gradient(to right, var(--hero-darker) 0%, var(--hero-dark) 40%, var(--hero-dark) 60%, var(--hero-darker) 100%)",
+								}}
+							>
+								<div className="container mx-auto max-w-4xl text-center">
+									<h1 className="mb-4 font-bold font-heading text-2xl text-white tracking-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
 										{slide.title}
-									</div>
-									<div className="mx-auto max-w-2xl font-light text-lg text-slate-200 md:text-xl lg:text-2xl">
+									</h1>
+									<p className="mx-auto max-w-2xl font-normal text-base text-white/90 sm:text-lg md:text-xl lg:text-2xl">
 										{slide.description}
-									</div>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				))}
 
-				{/* Navigation buttons */}
 				<Button
+					type="button"
 					variant="outline"
 					size="icon"
-					className="absolute top-1/2 left-6 -translate-y-1/2 border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+					className="absolute top-1/2 left-3 h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:left-6"
 					onClick={goToPrevious}
+					aria-label="Previous slide"
 				>
 					<ChevronLeft className="h-5 w-5" />
 				</Button>
 				<Button
+					type="button"
 					variant="outline"
 					size="icon"
-					className="absolute top-1/2 right-6 -translate-y-1/2 border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+					className="absolute top-1/2 right-3 h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:right-6"
 					onClick={goToNext}
+					aria-label="Next slide"
 				>
 					<ChevronRight className="h-5 w-5" />
 				</Button>
 
-				{/* Slide indicators */}
-				<div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
+				<div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 sm:bottom-8">
 					{slides.map((slide, index) => (
 						<button
 							key={slide.id}
 							type="button"
-							className={`h-1.5 w-10 rounded-full transition-all ${
+							className={`h-1.5 w-8 rounded-full transition-all sm:w-10 ${
 								index === currentSlide
 									? "bg-white"
 									: "bg-white/40 hover:bg-white/60"
