@@ -10,6 +10,7 @@ const authConfig: Parameters<typeof betterAuth>[0] = {
 	secret:
 		env.BETTER_AUTH_SECRET ||
 		"default-secret-key-for-development-only-change-in-production",
+	baseURL: env.BETTER_AUTH_URL || "http://localhost:3000",
 	trustedOrigins: env.CORS_ORIGIN
 		? [env.CORS_ORIGIN]
 		: ["http://localhost:3000"],

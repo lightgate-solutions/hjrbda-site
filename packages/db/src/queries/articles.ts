@@ -6,6 +6,10 @@ import type { GetArticlesParams } from "../types/articles";
 export type { GetArticlesParams } from "../types/articles";
 
 export async function getPublishedArticles(params: GetArticlesParams = {}) {
+	if (!db) {
+		return [];
+	}
+
 	const { category, search, featured, limit = 10, offset = 0 } = params;
 
 	const conditions = [eq(article.status, "published")];
@@ -58,6 +62,10 @@ export async function getPublishedArticles(params: GetArticlesParams = {}) {
 export async function getPublishedArticlesCount(
 	params: GetArticlesParams = {},
 ) {
+	if (!db) {
+		return 0;
+	}
+
 	const { category, search } = params;
 
 	const conditions = [eq(article.status, "published")];
@@ -84,6 +92,10 @@ export async function getPublishedArticlesCount(
 }
 
 export async function getAdminArticles(params: GetArticlesParams = {}) {
+	if (!db) {
+		return [];
+	}
+
 	const { status, category, search, limit = 10, offset = 0 } = params;
 
 	const conditions: ReturnType<typeof eq>[] = [];
@@ -138,6 +150,10 @@ export async function getAdminArticles(params: GetArticlesParams = {}) {
 }
 
 export async function getAdminArticlesCount(params: GetArticlesParams = {}) {
+	if (!db) {
+		return 0;
+	}
+
 	const { status, category, search } = params;
 
 	const conditions: ReturnType<typeof eq>[] = [];
@@ -173,6 +189,10 @@ export async function getArticleBySlug(
 	slug: string,
 	includeUnpublished = false,
 ) {
+	if (!db) {
+		return null;
+	}
+
 	const conditions = [eq(article.slug, slug)];
 
 	if (!includeUnpublished) {
@@ -209,6 +229,10 @@ export async function getArticleBySlug(
 }
 
 export async function getArticleById(id: string) {
+	if (!db) {
+		return null;
+	}
+
 	const result = await db
 		.select({
 			id: article.id,
@@ -240,6 +264,10 @@ export async function getArticleById(id: string) {
 }
 
 export async function getFeaturedArticles(limit = 3) {
+	if (!db) {
+		return [];
+	}
+
 	const articles = await db
 		.select({
 			id: article.id,
