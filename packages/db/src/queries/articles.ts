@@ -10,28 +10,29 @@ export async function getPublishedArticles(params: GetArticlesParams = {}) {
 		return [];
 	}
 
-	const { category, search, featured, limit = 10, offset = 0 } = params;
+	try {
+		const { category, search, featured, limit = 10, offset = 0 } = params;
 
-	const conditions = [eq(article.status, "published")];
+		const conditions = [eq(article.status, "published")];
 
-	if (category) {
-		conditions.push(eq(article.category, category));
-	}
+		if (category) {
+			conditions.push(eq(article.category, category));
+		}
 
-	if (search) {
-		conditions.push(
-			or(
-				ilike(article.title, `%${search}%`),
-				ilike(article.excerpt, `%${search}%`),
-			) ?? sql`true`,
-		);
-	}
+		if (search) {
+			conditions.push(
+				or(
+					ilike(article.title, `%${search}%`),
+					ilike(article.excerpt, `%${search}%`),
+				) ?? sql`true`,
+			);
+		}
 
-	if (featured !== undefined) {
-		conditions.push(eq(article.featured, featured));
-	}
+		if (featured !== undefined) {
+			conditions.push(eq(article.featured, featured));
+		}
 
-	const articles = await db
+		const articles = await db
 		.select({
 			id: article.id,
 			slug: article.slug,
@@ -56,7 +57,12 @@ export async function getPublishedArticles(params: GetArticlesParams = {}) {
 		.limit(limit)
 		.offset(offset);
 
-	return articles;
+		return articles;
+	} catch (error) {
+		// Database connection failed - return empty array
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return [];
+	}
 }
 
 export async function getPublishedArticlesCount(
@@ -66,29 +72,34 @@ export async function getPublishedArticlesCount(
 		return 0;
 	}
 
-	const { category, search } = params;
+	try {
+		const { category, search } = params;
 
-	const conditions = [eq(article.status, "published")];
+		const conditions = [eq(article.status, "published")];
 
-	if (category) {
-		conditions.push(eq(article.category, category));
+		if (category) {
+			conditions.push(eq(article.category, category));
+		}
+
+		if (search) {
+			conditions.push(
+				or(
+					ilike(article.title, `%${search}%`),
+					ilike(article.excerpt, `%${search}%`),
+				) ?? sql`true`,
+			);
+		}
+
+		const result = await db
+			.select({ count: count() })
+			.from(article)
+			.where(and(...conditions));
+
+		return result[0]?.count ?? 0;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return 0;
 	}
-
-	if (search) {
-		conditions.push(
-			or(
-				ilike(article.title, `%${search}%`),
-				ilike(article.excerpt, `%${search}%`),
-			) ?? sql`true`,
-		);
-	}
-
-	const result = await db
-		.select({ count: count() })
-		.from(article)
-		.where(and(...conditions));
-
-	return result[0]?.count ?? 0;
 }
 
 export async function getAdminArticles(params: GetArticlesParams = {}) {
@@ -96,30 +107,31 @@ export async function getAdminArticles(params: GetArticlesParams = {}) {
 		return [];
 	}
 
-	const { status, category, search, limit = 10, offset = 0 } = params;
+	try {
+		const { status, category, search, limit = 10, offset = 0 } = params;
 
-	const conditions: ReturnType<typeof eq>[] = [];
+		const conditions: ReturnType<typeof eq>[] = [];
 
-	if (status) {
-		conditions.push(eq(article.status, status));
-	}
+		if (status) {
+			conditions.push(eq(article.status, status));
+		}
 
-	if (category) {
-		conditions.push(eq(article.category, category));
-	}
+		if (category) {
+			conditions.push(eq(article.category, category));
+		}
 
-	if (search) {
-		conditions.push(
-			or(
-				ilike(article.title, `%${search}%`),
-				ilike(article.excerpt, `%${search}%`),
-			) ?? sql`true`,
-		);
-	}
+		if (search) {
+			conditions.push(
+				or(
+					ilike(article.title, `%${search}%`),
+					ilike(article.excerpt, `%${search}%`),
+				) ?? sql`true`,
+			);
+		}
 
-	const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
+		const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
 
-	const articles = await db
+		const articles = await db
 		.select({
 			id: article.id,
 			slug: article.slug,
@@ -146,7 +158,11 @@ export async function getAdminArticles(params: GetArticlesParams = {}) {
 		.limit(limit)
 		.offset(offset);
 
-	return articles;
+		return articles;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return [];
+	}
 }
 
 export async function getAdminArticlesCount(params: GetArticlesParams = {}) {
@@ -154,35 +170,40 @@ export async function getAdminArticlesCount(params: GetArticlesParams = {}) {
 		return 0;
 	}
 
-	const { status, category, search } = params;
+	try {
+		const { status, category, search } = params;
 
-	const conditions: ReturnType<typeof eq>[] = [];
+		const conditions: ReturnType<typeof eq>[] = [];
 
-	if (status) {
-		conditions.push(eq(article.status, status));
+		if (status) {
+			conditions.push(eq(article.status, status));
+		}
+
+		if (category) {
+			conditions.push(eq(article.category, category));
+		}
+
+		if (search) {
+			conditions.push(
+				or(
+					ilike(article.title, `%${search}%`),
+					ilike(article.excerpt, `%${search}%`),
+				) ?? sql`true`,
+			);
+		}
+
+		const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
+
+		const result = await db
+			.select({ count: count() })
+			.from(article)
+			.where(whereClause);
+
+		return result[0]?.count ?? 0;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return 0;
 	}
-
-	if (category) {
-		conditions.push(eq(article.category, category));
-	}
-
-	if (search) {
-		conditions.push(
-			or(
-				ilike(article.title, `%${search}%`),
-				ilike(article.excerpt, `%${search}%`),
-			) ?? sql`true`,
-		);
-	}
-
-	const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
-
-	const result = await db
-		.select({ count: count() })
-		.from(article)
-		.where(whereClause);
-
-	return result[0]?.count ?? 0;
 }
 
 export async function getArticleBySlug(
@@ -193,13 +214,14 @@ export async function getArticleBySlug(
 		return null;
 	}
 
-	const conditions = [eq(article.slug, slug)];
+	try {
+		const conditions = [eq(article.slug, slug)];
 
-	if (!includeUnpublished) {
-		conditions.push(eq(article.status, "published"));
-	}
+		if (!includeUnpublished) {
+			conditions.push(eq(article.status, "published"));
+		}
 
-	const result = await db
+		const result = await db
 		.select({
 			id: article.id,
 			slug: article.slug,
@@ -225,7 +247,11 @@ export async function getArticleBySlug(
 		.where(and(...conditions))
 		.limit(1);
 
-	return result[0] ?? null;
+		return result[0] ?? null;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return null;
+	}
 }
 
 export async function getArticleById(id: string) {
@@ -233,7 +259,8 @@ export async function getArticleById(id: string) {
 		return null;
 	}
 
-	const result = await db
+	try {
+		const result = await db
 		.select({
 			id: article.id,
 			slug: article.slug,
@@ -260,7 +287,11 @@ export async function getArticleById(id: string) {
 		.where(eq(article.id, id))
 		.limit(1);
 
-	return result[0] ?? null;
+		return result[0] ?? null;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return null;
+	}
 }
 
 export async function getFeaturedArticles(limit = 3) {
@@ -268,7 +299,8 @@ export async function getFeaturedArticles(limit = 3) {
 		return [];
 	}
 
-	const articles = await db
+	try {
+		const articles = await db
 		.select({
 			id: article.id,
 			slug: article.slug,
@@ -291,5 +323,9 @@ export async function getFeaturedArticles(limit = 3) {
 		.orderBy(desc(article.publishedAt))
 		.limit(limit);
 
-	return articles;
+		return articles;
+	} catch (error) {
+		console.warn("[DB] Query failed:", error instanceof Error ? error.message : "Unknown error");
+		return [];
+	}
 }
