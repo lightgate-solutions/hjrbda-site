@@ -6,6 +6,7 @@ node_modules
 # Build outputs
 dist
 build
+.next
 *.tsbuildinfo
 
 # Environment variables
@@ -49,3 +50,8 @@ coverage
 .cache
 tmp
 temp
+
+# Charter source documents (client content)
+REVIEDWED LOCAL CHARTER FOR  HADEJA JAMAARE RIVER BASIN AUTHORITY_Reviewed (2).pdf
+HJRBDA-Local-Charter-Content.md
+HJRBDA-Local-Charter-Content-Public.md

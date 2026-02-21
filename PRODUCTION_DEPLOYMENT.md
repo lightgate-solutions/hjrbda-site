@@ -67,7 +67,7 @@ BETTER_AUTH_SECRET=your-32-character-secret-key
 
 - [ ] All code is committed and pushed to `main` branch
 - [ ] Build passes locally: `bun run build`
-- [ ] No TypeScript errors: `bun run check-types`
+- [ ] Lint/format passes: `bun run check`
 - [ ] Environment variables are set in Vercel
 - [ ] `BETTER_AUTH_URL` matches your production domain
 - [ ] `CORS_ORIGIN` matches your production domain
