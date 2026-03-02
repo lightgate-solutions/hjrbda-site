@@ -88,27 +88,6 @@ export default async function DepartmentPage({ params }: Props) {
 								<p className="mb-4 text-[var(--text-secondary)] text-body leading-relaxed">
 									{directorate.shortDescription}
 								</p>
-								{(directorate.ed.phone || directorate.ed.email) && (
-									<ul className="space-y-1 text-[var(--text-muted)] text-caption">
-										{directorate.ed.phone && (
-											<li>
-												<span className="font-medium">Phone:</span>{" "}
-												{directorate.ed.phone}
-											</li>
-										)}
-										{directorate.ed.email && (
-											<li>
-												<span className="font-medium">Email:</span>{" "}
-												<a
-													href={`mailto:${directorate.ed.email}`}
-													className="text-[var(--accent)] hover:underline"
-												>
-													{directorate.ed.email}
-												</a>
-											</li>
-										)}
-									</ul>
-								)}
 							</div>
 						</div>
 					</ScrollAnimate>
@@ -139,24 +118,9 @@ export default async function DepartmentPage({ params }: Props) {
 										</CardTitle>
 									</CardHeader>
 									<CardContent className="pt-0">
-										<p className="mb-3 text-[var(--text-secondary)] text-body">
+										<p className="text-[var(--text-secondary)] text-body">
 											{head.division}
 										</p>
-										{(head.phone || head.email) && (
-											<ul className="space-y-1 text-[var(--text-muted)] text-caption">
-												{head.phone && <li>Phone: {head.phone}</li>}
-												{head.email && (
-													<li>
-														<a
-															href={`mailto:${head.email}`}
-															className="text-[var(--accent)] hover:underline"
-														>
-															{head.email}
-														</a>
-													</li>
-												)}
-											</ul>
-										)}
 									</CardContent>
 								</Card>
 							))}
