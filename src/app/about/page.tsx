@@ -1,7 +1,11 @@
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import Footer from "@/components/footer";
+import LeaderPhoto from "@/components/leader-photo";
 import PageIntro from "@/components/page-intro";
 import ScrollAnimate from "@/components/scroll-animate";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { directorates, managingDirector } from "@/data/departments";
 
 export default function AboutPage() {
 	return (
@@ -24,6 +28,98 @@ export default function AboutPage() {
 			</div>
 
 			<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
+				{/* Managing Director / CEO */}
+				<section
+					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					style={{ backgroundColor: "var(--section-alt)" }}
+				>
+					<ScrollAnimate>
+						<h2 className="mb-8 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+							Leadership
+						</h2>
+						<div className="flex flex-col gap-8 sm:flex-row sm:items-start">
+							<LeaderPhoto
+								src={managingDirector.image}
+								alt={managingDirector.name}
+								fallbackInitials="RSY"
+							/>
+							<div>
+								<p
+									className="mb-1 font-medium text-[var(--accent)] uppercase tracking-wider"
+									style={{ fontSize: "var(--text-caption)" }}
+								>
+									{managingDirector.title}
+								</p>
+								<h3 className="mb-2 font-bold font-heading text-[var(--text-primary)] text-h3">
+									{managingDirector.name}
+								</h3>
+								{managingDirector.qualification && (
+									<p className="mb-4 text-[var(--text-muted)] text-body">
+										{managingDirector.qualification}
+									</p>
+								)}
+								<p className="text-[var(--text-secondary)] text-body leading-relaxed">
+									The Authority&apos;s Chief Executive Officer is the Managing
+									Director, responsible for the overall leadership of H-JRBDA.
+								</p>
+							</div>
+						</div>
+					</ScrollAnimate>
+				</section>
+
+				{/* Directorates (clickable departments) */}
+				<section
+					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					style={{ backgroundColor: "var(--section-warm)" }}
+				>
+					<h2 className="mb-8 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+						Directorates
+					</h2>
+					<p className="mb-10 text-[var(--text-secondary)] text-body leading-relaxed">
+						The Authority has four Directorates. Each is headed by an Executive
+						Director. Click a directorate to view details and division heads.
+					</p>
+					<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+						{directorates.map((dir) => (
+							<ScrollAnimate key={dir.slug} delay={dir.slug.length * 50}>
+								<Link
+									href={`/about/departments/${dir.slug}`}
+									className="block h-full transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
+								>
+									<Card className="card-institutional h-full overflow-hidden border-2 border-[var(--card-border)] shadow-md transition-shadow hover:border-[var(--accent)]/30 hover:shadow-lg">
+										<CardHeader className="pb-2">
+											<div
+												className="mb-3 h-1 w-12 rounded-sm"
+												style={{ backgroundColor: "var(--accent)" }}
+											/>
+											<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
+												{dir.name}
+											</CardTitle>
+										</CardHeader>
+										<CardContent className="pt-0">
+											<p className="mb-4 line-clamp-3 text-[var(--text-secondary)] text-body leading-relaxed">
+												{dir.shortDescription}
+											</p>
+											<div className="flex flex-col gap-1 border-[var(--card-border)] border-t pt-4">
+												<p className="font-semibold text-[var(--text-primary)] text-sm">
+													{dir.ed.name}
+												</p>
+												<p className="text-[var(--text-muted)] text-caption">
+													{dir.ed.title}
+												</p>
+											</div>
+											<span className="mt-4 inline-flex items-center gap-1 font-medium text-[var(--accent)] text-sm">
+												View directorate
+												<ChevronRight className="h-4 w-4" aria-hidden />
+											</span>
+										</CardContent>
+									</Card>
+								</Link>
+							</ScrollAnimate>
+						))}
+					</div>
+				</section>
+
 				<section
 					className="mb-20 rounded-lg px-6 py-8 md:px-8"
 					style={{ backgroundColor: "var(--section-alt)" }}
