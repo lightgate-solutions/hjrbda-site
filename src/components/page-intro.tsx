@@ -47,7 +47,7 @@ export default function PageIntro({
 						{eyebrow}
 					</p>
 				)}
-				<h1 className="font-bold font-heading text-[var(--text-primary)] text-h1 tracking-tight">
+				<h1 className="break-words font-bold font-heading text-[var(--text-primary)] text-h1 tracking-tight">
 					{title}
 				</h1>
 			</div>

@@ -1,3 +1,4 @@
+import { User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -20,7 +21,7 @@ export default function UserMenu() {
 	const { data: session, isPending } = authClient.useSession();
 
 	if (isPending) {
-		return <Skeleton className="h-9 w-24" />;
+		return <Skeleton className="h-11 w-11 shrink-0" />;
 	}
 
 	if (!session) {
@@ -29,20 +30,20 @@ export default function UserMenu() {
 
 	return (
 		<DropdownMenu>
-			<DropdownMenuTrigger render={<Button variant="outline" />}>
-				{session.user.name}
+			<DropdownMenuTrigger
+				render={
+					<Button variant="outline" size="icon" aria-label="Account menu" />
+				}
+			>
+				<User className="h-5 w-5" aria-hidden />
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="bg-card">
 				<DropdownMenuGroup>
-					<DropdownMenuLabel>My Account</DropdownMenuLabel>
+					<DropdownMenuLabel>Account</DropdownMenuLabel>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem>{session.user.email}</DropdownMenuItem>
 					<DropdownMenuItem
 						render={
-							<Link
-								href="/admin/dashboard"
-								className="block w-full no-underline"
-							/>
+							<Link href="/admin" className="block w-full no-underline" />
 						}
 					>
 						Dashboard

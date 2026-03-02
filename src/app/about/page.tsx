@@ -30,11 +30,11 @@ export default function AboutPage() {
 			<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
 				{/* Managing Director / CEO */}
 				<section
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-alt)" }}
 				>
 					<ScrollAnimate>
-						<h2 className="mb-8 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+						<h2 className="mb-6 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight sm:mb-8">
 							Leadership
 						</h2>
 						<div className="flex flex-col gap-8 sm:flex-row sm:items-start">
@@ -69,13 +69,13 @@ export default function AboutPage() {
 
 				{/* Directorates (clickable departments) */}
 				<section
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-warm)" }}
 				>
-					<h2 className="mb-8 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+					<h2 className="mb-6 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight sm:mb-8">
 						Directorates
 					</h2>
-					<p className="mb-10 text-[var(--text-secondary)] text-body leading-relaxed">
+					<p className="mb-8 text-[var(--text-secondary)] text-body leading-relaxed sm:mb-10">
 						The Authority has four Directorates. Each is headed by an Executive
 						Director. Click a directorate to view details and division heads.
 					</p>
@@ -121,10 +121,10 @@ export default function AboutPage() {
 				</section>
 
 				<section
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-alt)" }}
 				>
-					<h2 className="mb-8 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight">
+					<h2 className="mb-6 font-bold font-heading text-[var(--text-primary)] text-h2 tracking-tight sm:mb-8">
 						About H-JRBDA
 					</h2>
 					<div className="space-y-6">
@@ -153,7 +153,7 @@ export default function AboutPage() {
 
 				<section
 					id="vision"
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-warm)" }}
 				>
 					<ScrollAnimate>
@@ -182,7 +182,7 @@ export default function AboutPage() {
 
 				<section
 					id="mission"
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-alt)" }}
 				>
 					<ScrollAnimate delay={100}>
@@ -214,7 +214,7 @@ export default function AboutPage() {
 
 				<section
 					id="mandate"
-					className="mb-20 rounded-lg px-6 py-8 md:px-8"
+					className="mb-16 rounded-lg px-4 py-6 sm:px-6 sm:py-8 md:mb-20 md:px-8"
 					style={{ backgroundColor: "var(--section-warm)" }}
 				>
 					<ScrollAnimate delay={200}>

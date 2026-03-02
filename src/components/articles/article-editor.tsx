@@ -46,7 +46,7 @@ export function ArticleEditor({
 		editorProps: {
 			attributes: {
 				class:
-					"prose prose-sm sm:prose max-w-none focus:outline-none min-h-[300px] px-4 py-3 text-foreground",
+					"article-editor-body focus:outline-none min-h-[300px] px-4 py-3 text-foreground",
 			},
 		},
 	});
@@ -66,7 +66,7 @@ export function ArticleEditor({
 	if (!editor) return null;
 
 	return (
-		<div className="overflow-hidden rounded-md border bg-background">
+		<div className="article-editor-content overflow-hidden rounded-md border bg-background">
 			<div className="flex flex-wrap gap-1 border-b bg-muted/30 p-2">
 				<ToolbarButton
 					onClick={() => editor.chain().focus().toggleBold().run()}

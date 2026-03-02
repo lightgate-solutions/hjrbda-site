@@ -2,38 +2,9 @@
 
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
+import { PROJECT_OFFICES } from "@/data/project-offices";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader } from "./ui/card";
-
-const PROJECT_OFFICES = [
-	{
-		id: 1,
-		title: "Kano River Irrigation Project (West Branch)",
-		location: "Kura",
-	},
-	{
-		id: 2,
-		title: "Kano River Irrigation Project (East Branch)",
-		location: "Bunkure",
-	},
-	{ id: 3, title: "Hadejia Valley Irrigation Project", location: "Hadejia" },
-	{ id: 4, title: "Tiga Dam Project", location: "Tiga" },
-	{
-		id: 5,
-		title: "Challawa Gorge Dam and Irrigation Project",
-		location: "Karaye",
-	},
-	{
-		id: 6,
-		title: "Galala and Kafin Zaki Dams and Irrigation Project",
-		location: "Nasaru",
-	},
-	{ id: 7, title: "Jama'are Valley Project", location: "Zigau" },
-	{ id: 8, title: "Katagum Irrigation Project", location: "Katagum" },
-	{ id: 9, title: "Shongai Model Farm", location: "Wudil" },
-	{ id: 10, title: "Gari Irrigation Project", location: "Kazaure" },
-	{ id: 11, title: "Maigatari Irrigation Project", location: "Maigatari" },
-] as const;
 
 export default function ProjectOfficesCarousel() {
 	const [current, setCurrent] = useState(0);
@@ -56,7 +27,7 @@ export default function ProjectOfficesCarousel() {
 	};
 
 	return (
-		<div className="relative">
+		<div className="relative min-w-0 max-w-full">
 			<div className="overflow-hidden">
 				{PROJECT_OFFICES.map((office, index) => (
 					<div
@@ -66,51 +37,53 @@ export default function ProjectOfficesCarousel() {
 						}`}
 						aria-hidden={index !== current}
 					>
-						<Card className="card-institutional overflow-hidden border-2">
+						<Card className="card-institutional min-w-0 overflow-hidden border-2">
 							<CardHeader
-								className="pt-8 pb-2"
+								className="pt-6 pb-2 sm:pt-8"
 								style={{ borderColor: "var(--card-border)" }}
 							>
 								<div
-									className="mb-4 h-1 w-12 rounded-sm"
+									className="mb-3 h-1 w-10 rounded-sm sm:mb-4 sm:w-12"
 									style={{ backgroundColor: "var(--accent)" }}
 								/>
-								<h3 className="font-bold font-heading text-[var(--text-primary)] text-xl leading-tight md:text-2xl">
+								<h3 className="break-words font-bold font-heading text-[var(--text-primary)] text-lg leading-tight sm:text-xl md:text-2xl">
 									{office.title}
 								</h3>
 							</CardHeader>
-							<CardContent className="flex items-center gap-2 pb-8 text-[var(--text-secondary)] text-body">
+							<CardContent className="flex items-center gap-2 pb-6 text-[var(--text-secondary)] text-body sm:pb-8">
 								<MapPin
 									className="h-4 w-4 shrink-0"
 									style={{ color: "var(--accent)" }}
 									aria-hidden
 								/>
-								<span className="font-medium text-body">{office.location}</span>
+								<span className="min-w-0 font-medium text-body">
+									{office.location}
+								</span>
 							</CardContent>
 						</Card>
 					</div>
 				))}
 			</div>
 
-			<div className="mt-6 flex items-center justify-center gap-4">
+			<div className="mt-4 flex min-w-0 max-w-full flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-4">
 				<Button
 					type="button"
 					variant="outline"
 					size="icon"
-					className="h-10 w-10 shrink-0 rounded-full border-2"
+					className="h-9 w-9 shrink-0 rounded-full border-2 sm:h-10 sm:w-10"
 					style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
 					onClick={goPrev}
 					aria-label="Previous project office"
 				>
-					<ChevronLeft className="h-5 w-5" />
+					<ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
 				</Button>
 
-				<div className="flex gap-1.5">
+				<div className="flex min-w-0 shrink justify-center gap-1">
 					{PROJECT_OFFICES.map((office, index) => (
 						<button
 							key={office.id}
 							type="button"
-							className={`h-1.5 w-6 rounded-full transition-all sm:w-8 ${
+							className={`h-1.5 w-3 shrink-0 rounded-full transition-all sm:w-5 md:w-6 ${
 								index === current
 									? "opacity-100"
 									: "opacity-40 hover:opacity-70"
@@ -129,16 +102,16 @@ export default function ProjectOfficesCarousel() {
 					type="button"
 					variant="outline"
 					size="icon"
-					className="h-10 w-10 shrink-0 rounded-full border-2"
+					className="h-9 w-9 shrink-0 rounded-full border-2 sm:h-10 sm:w-10"
 					style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
 					onClick={goNext}
 					aria-label="Next project office"
 				>
-					<ChevronRight className="h-5 w-5" />
+					<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
 				</Button>
 			</div>
 
-			<p className="mt-6 text-center text-[var(--text-muted)] text-sm">
+			<p className="mt-4 text-center text-[var(--text-muted)] text-sm sm:mt-6">
 				{current + 1} of {PROJECT_OFFICES.length} project offices
 			</p>
 		</div>

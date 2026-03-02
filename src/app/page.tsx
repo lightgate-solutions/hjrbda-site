@@ -332,8 +332,8 @@ export default async function Home() {
 							},
 						].map((service, index) => (
 							<ScrollAnimate key={service.id} delay={index * 50}>
-								<Card className="card-institutional overflow-hidden">
-									<CardHeader className="pt-8 pb-4 md:pb-6">
+								<Card className="card-institutional min-w-0 overflow-hidden">
+									<CardHeader className="pt-6 pb-4 sm:pt-8 md:pb-6">
 										<div
 											className="mb-4 h-1 w-12 rounded-sm"
 											style={{ backgroundColor: "var(--accent)" }}

@@ -77,13 +77,13 @@ export default function TenderPage() {
 				<div className="space-y-6">
 					{tenders.map((tender, index) => (
 						<ScrollAnimate key={tender.id} delay={index * 100}>
-							<Card className="card-institutional overflow-hidden">
-								<CardHeader className="pt-8 pb-6">
+							<Card className="card-institutional min-w-0 overflow-hidden">
+								<CardHeader className="pt-6 pb-4 sm:pt-8 sm:pb-6">
 									<div
 										className="mb-4 h-1 w-16 rounded-sm"
 										style={{ backgroundColor: "var(--accent)" }}
 									/>
-									<CardTitle className="font-bold font-heading text-[var(--text-primary)] text-h3">
+									<CardTitle className="break-words font-bold font-heading text-[var(--text-primary)] text-h3">
 										{tender.title}
 									</CardTitle>
 									<CardDescription className="mt-2 text-[var(--text-secondary)] text-body">

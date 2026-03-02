@@ -68,7 +68,7 @@ export default function Header() {
 						<Link
 							key={to}
 							href={to}
-							className={`border-transparent border-b-2 pb-1 font-medium text-[var(--nav-fg)] text-sm transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] ${
+							className={`border-transparent border-b-2 pb-1 font-medium text-[var(--nav-fg)] text-base transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] ${
 								pathname === to
 									? "border-[var(--accent)] text-[var(--accent)]"
 									: ""
@@ -117,7 +117,7 @@ export default function Header() {
 								<Link
 									href={to}
 									onClick={closeMobile}
-									className={`block rounded-lg px-4 py-3 font-medium text-[var(--nav-fg)] text-sm transition-colors hover:bg-[var(--nav-hover)] hover:text-[var(--accent)] focus:bg-[var(--nav-hover)] focus:text-[var(--accent)] focus:outline-none ${
+									className={`block rounded-lg px-4 py-3 font-medium text-[var(--nav-fg)] text-base transition-colors hover:bg-[var(--nav-hover)] hover:text-[var(--accent)] focus:bg-[var(--nav-hover)] focus:text-[var(--accent)] focus:outline-none ${
 										pathname === to
 											? "bg-[var(--nav-hover)] text-[var(--accent)]"
 											: ""

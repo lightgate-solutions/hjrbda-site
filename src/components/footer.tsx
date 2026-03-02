@@ -11,7 +11,7 @@ export default function Footer() {
 			}}
 		>
 			<div className="container mx-auto px-4 sm:px-6">
-				<div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-12">
+				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 md:gap-12">
 					<div>
 						<h3 className="mb-5 font-heading font-semibold text-h3 text-white">
 							Who we are

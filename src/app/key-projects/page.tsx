@@ -1,36 +1,7 @@
 import { MapPin } from "lucide-react";
 import Footer from "@/components/footer";
 import PageIntro from "@/components/page-intro";
-
-const PROJECT_OFFICES = [
-	{
-		id: 1,
-		title: "Kano River Irrigation Project (West Branch)",
-		location: "Kura",
-	},
-	{
-		id: 2,
-		title: "Kano River Irrigation Project (East Branch)",
-		location: "Bunkure",
-	},
-	{ id: 3, title: "Hadejia Valley Irrigation Project", location: "Hadejia" },
-	{ id: 4, title: "Tiga Dam Project", location: "Tiga" },
-	{
-		id: 5,
-		title: "Challawa Gorge Dam and Irrigation Project",
-		location: "Karaye",
-	},
-	{
-		id: 6,
-		title: "Galala and Kafin Zaki Dams and Irrigation Project",
-		location: "Nasaru",
-	},
-	{ id: 7, title: "Jama'are Valley Project", location: "Zigau" },
-	{ id: 8, title: "Katagum Irrigation Project", location: "Katagum" },
-	{ id: 9, title: "Shongai Model Farm", location: "Wudil" },
-	{ id: 10, title: "Gari Irrigation Project", location: "Kazaure" },
-	{ id: 11, title: "Maigatari Irrigation Project", location: "Maigatari" },
-] as const;
+import { PROJECT_OFFICES } from "@/data/project-offices";
 
 export default function KeyProjectsPage() {
 	return (
@@ -94,14 +65,14 @@ export default function KeyProjectsPage() {
 					{PROJECT_OFFICES.map((office, index) => (
 						<div
 							key={office.id}
-							className="grid grid-cols-1 gap-2 border-b px-5 py-4 last:border-b-0 md:grid-cols-[1fr_auto] md:items-center md:gap-4"
+							className="grid grid-cols-1 gap-2 border-b px-4 py-4 last:border-b-0 sm:px-5 md:grid-cols-[1fr_auto] md:items-center md:gap-4"
 							style={{
 								borderColor: "var(--card-border)",
 								backgroundColor:
 									index % 2 === 1 ? "var(--section-alt)" : undefined,
 							}}
 						>
-							<span className="font-medium text-[var(--text-primary)] text-base">
+							<span className="min-w-0 break-words font-medium text-[var(--text-primary)] text-base">
 								{office.title}
 							</span>
 							<span className="flex items-center gap-2 text-[var(--text-secondary)] text-body md:justify-end">

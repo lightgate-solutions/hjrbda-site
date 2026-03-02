@@ -13,12 +13,26 @@ import {
 export default function ContactPage() {
 	return (
 		<div className="flex min-h-screen flex-col">
-			<div className="container mx-auto px-4 py-16 sm:px-6 md:py-24">
-				<PageIntro
-					eyebrow="Contact"
-					title="Contact us"
-					breadcrumbs={[{ href: "/", label: "Home" }, { label: "Contact" }]}
-				/>
+			<div
+				className="border-b py-12 md:py-16"
+				style={{
+					backgroundColor: "var(--section-alt)",
+					borderColor: "var(--card-border)",
+				}}
+			>
+				<div className="container mx-auto px-4 sm:px-6">
+					<PageIntro
+						eyebrow="Contact"
+						title="Contact us"
+						breadcrumbs={[{ href: "/", label: "Home" }, { label: "Contact" }]}
+					/>
+					<p className="mt-4 max-w-2xl text-[var(--text-secondary)] text-body leading-relaxed">
+						Get in touch with the Hadejia Jama&apos;are River Basin Development
+						Authority.
+					</p>
+				</div>
+			</div>
+			<div className="container mx-auto min-w-0 px-4 py-16 sm:px-6 md:py-24">
 				<div className="grid gap-8 md:grid-cols-2">
 					<ScrollAnimate>
 						<div className="space-y-6">

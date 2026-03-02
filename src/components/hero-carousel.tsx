@@ -59,7 +59,7 @@ export default function HeroCarousel() {
 					"linear-gradient(160deg, var(--hero-darker) 0%, var(--hero-dark) 45%, #0f2c2e 100%)",
 			}}
 		>
-			<div className="relative h-[420px] sm:h-[480px] md:h-[550px] lg:h-[620px]">
+			<div className="relative min-h-[100dvh] w-full sm:h-[480px] sm:min-h-0 md:h-[550px] lg:h-[620px]">
 				{slides.map((slide, index) => (
 					<div
 						key={slide.id}
@@ -90,7 +90,7 @@ export default function HeroCarousel() {
 					type="button"
 					variant="outline"
 					size="icon"
-					className="absolute top-1/2 left-3 h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:left-6"
+					className="absolute top-1/2 left-3 hidden h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:left-6 sm:flex"
 					onClick={goToPrevious}
 					aria-label="Previous slide"
 				>
@@ -100,7 +100,7 @@ export default function HeroCarousel() {
 					type="button"
 					variant="outline"
 					size="icon"
-					className="absolute top-1/2 right-3 h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:right-6"
+					className="absolute top-1/2 right-3 hidden h-10 w-10 -translate-y-1/2 border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:right-6 sm:flex"
 					onClick={goToNext}
 					aria-label="Next slide"
 				>

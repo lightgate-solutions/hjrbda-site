@@ -113,7 +113,7 @@ export function ArticleForm({ article, isEditing = false }: ArticleFormProps) {
 
 				<div className="space-y-2">
 					<Label htmlFor="excerpt">Excerpt</Label>
-					<p className="text-muted-foreground text-xs">
+					<p className="text-muted-foreground text-sm">
 						A short summary (shown in cards)
 					</p>
 					<Controller
