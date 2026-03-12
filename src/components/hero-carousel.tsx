@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
@@ -8,6 +9,7 @@ interface CarouselSlide {
 	id: number;
 	title: string;
 	description: string;
+	image: string;
 }
 
 const slides: CarouselSlide[] = [
@@ -16,16 +18,19 @@ const slides: CarouselSlide[] = [
 		title: "Water Resources Development",
 		description:
 			"Promoting sustainable water resource management in the Hadejia-Jama'are region",
+		image: "/WhatsApp Image 2026-03-07 at 15.37.40 (1).jpeg",
 	},
 	{
 		id: 2,
 		title: "Agricultural Development",
 		description: "Supporting irrigation projects and agricultural productivity",
+		image: "/WhatsApp Image 2026-03-07 at 15.37.41 (3).jpeg",
 	},
 	{
 		id: 3,
 		title: "Infrastructure Projects",
 		description: "Building dams, weirs, and water supply systems",
+		image: "/WhatsApp Image 2026-03-07 at 15.37.25 (1).jpeg",
 	},
 ];
 
@@ -52,14 +57,8 @@ export default function HeroCarousel() {
 	};
 
 	return (
-		<div
-			className="relative w-full overflow-hidden"
-			style={{
-				background:
-					"linear-gradient(160deg, var(--hero-darker) 0%, var(--hero-dark) 45%, #0f2c2e 100%)",
-			}}
-		>
-			<div className="relative min-h-[100dvh] w-full sm:h-[480px] sm:min-h-0 md:h-[550px] lg:h-[620px]">
+		<div className="relative w-full overflow-hidden">
+			<div className="relative min-h-[100dvh] w-full sm:h-[620px] sm:min-h-0 md:h-[720px] lg:h-[860px]">
 				{slides.map((slide, index) => (
 					<div
 						key={slide.id}
@@ -67,11 +66,18 @@ export default function HeroCarousel() {
 							index === currentSlide ? "opacity-100" : "opacity-0"
 						}`}
 					>
+						<Image
+							src={slide.image}
+							alt={slide.title}
+							fill
+							className="object-cover"
+							priority={index === 0}
+						/>
 						<div
-							className="flex h-full w-full items-center justify-center px-4 sm:px-6"
+							className="absolute inset-0 flex h-full w-full items-center justify-center px-4 sm:px-6"
 							style={{
 								background:
-									"linear-gradient(to right, var(--hero-darker) 0%, var(--hero-dark) 40%, var(--hero-dark) 60%, var(--hero-darker) 100%)",
+									"linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.65) 100%)",
 							}}
 						>
 							<div className="container mx-auto max-w-4xl text-center">

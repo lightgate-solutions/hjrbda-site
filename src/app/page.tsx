@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import HeroCarousel from "@/components/hero-carousel";
@@ -270,69 +271,88 @@ export default async function Home() {
 								title: "Water resources development",
 								description:
 									"Undertaking a comprehensive development of underground and surface water resources for multiple purposes, emphasising the provision of Irrigation water.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.39 (1).jpeg",
 							},
 							{
 								id: "flood-erosion",
 								title: "Flood and erosion control",
 								description:
 									"Undertaking schemes for flood and erosion control and watershed management, including afforestation and orchard development.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.25.jpeg",
 							},
 							{
 								id: "dams-irrigation",
 								title: "Dams, irrigation and drainage",
 								description:
 									"Construction and maintenance of dams dykes polders, wells, boreholes, irrigation and drainage systems.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.39.jpeg",
 							},
 							{
 								id: "water-supply",
 								title: "Water from reservoirs",
 								description:
 									"Providing water from reservoirs and Lakes for irrigation purposes to farmers and urban and rural water supply.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.30 (2).jpeg",
 							},
 							{
 								id: "water-legislation",
 								title: "Water legislation and master plan",
 								description:
 									"Implementing water legislation and control measures and development, and updating water resources master plan of the areas of Authority's development and management.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.33 (1).jpeg",
 							},
 							{
 								id: "contract-works",
 								title: "Contract works",
 								description:
 									"Undertaking jobs on a contract basis for Federal, State and Local Governments and private clients.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.29.jpeg",
 							},
 							{
 								id: "small-schemes",
 								title: "Small irrigation schemes",
 								description:
 									"Construction of small irrigation schemes and small earth dams.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.28.jpeg",
 							},
 							{
 								id: "irrigation-maintenance",
 								title: "Irrigation infrastructure maintenance",
 								description:
 									"Maintenance of irrigation infrastructures (Water Conveyance System).",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.23.jpeg",
 							},
 							{
 								id: "feeder-roads",
 								title: "Feeder roads",
 								description:
 									"Construction and maintenance of feeder roads within the schemes.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.30 (1).jpeg",
 							},
 							{
 								id: "hydromet",
 								title: "Hydro metrological stations",
 								description:
 									"Establishment and management of Hydro metrological stations within the Basin.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.23 (2).jpeg",
 							},
 							{
 								id: "plant-hire",
 								title: "Plant and equipment hire",
 								description: "Plant and equipment hire.",
+								image: "/WhatsApp Image 2026-03-07 at 15.37.41 (2).jpeg",
 							},
 						].map((service, index) => (
 							<ScrollAnimate key={service.id} delay={index * 50}>
-								<Card className="card-institutional min-w-0 overflow-hidden">
+								<Card className="card-institutional min-w-0 overflow-hidden pt-0">
+									<div className="relative h-56 w-full overflow-hidden">
+										<Image
+											src={service.image}
+											alt={service.title}
+											fill
+											className="object-cover"
+										/>
+									</div>
 									<CardHeader className="pt-6 pb-4 sm:pt-8 md:pb-6">
 										<div
 											className="mb-4 h-1 w-12 rounded-sm"
