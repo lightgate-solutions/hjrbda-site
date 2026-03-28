@@ -3,43 +3,43 @@
 @import "shadcn/tailwind.css";
 
 :root {
-	/* Purpose-driven palette: water, earth, institutional warmth (not “tech green”) */
-	--accent: #0a5c5f;
-	--accent-hover: #084a4d;
-	--accent-light: #e6f2f2;
-	--accent-muted: #c5e0e0;
-	/* Warm secondary for highlights (earth / agriculture) – use sparingly */
-	--warm-accent: #b45309;
-	--warm-accent-light: #fef3e6;
+	/* Brand palette: H-JRBDA blue + red from official logo */
+	--accent: #049DD9;
+	--accent-hover: #0389bf;
+	--accent-light: #e6f6fd;
+	--accent-muted: #b3e0f5;
+	/* Red secondary from logo text “RUWA GWIWAR MANOMA” – use sparingly */
+	--warm-accent: #D90404;
+	--warm-accent-light: #fde8e8;
 
-	/* Warm paper and stone backgrounds */
-	--section-warm: #faf8f5;
-	--section-alt: #f3f0ea;
-	--section-white: #fdfcf9;
-	--card-bg: #fdfcf9;
-	--card-border: #e8e4dc;
+	/* Clean white/off-white backgrounds — let the blue do the work */
+	--section-warm: #fafafa;
+	--section-alt: #f2f7fb;
+	--section-white: #ffffff;
+	--card-bg: #ffffff;
+	--card-border: #d9eaf4;
 	--card-shadow:
-		0 1px 3px rgba(26, 24, 20, 0.05), 0 6px 20px rgba(26, 24, 20, 0.06);
+		0 1px 3px rgba(4, 157, 217, 0.06), 0 6px 20px rgba(4, 157, 217, 0.07);
 	--card-shadow-hover:
-		0 4px 12px rgba(26, 24, 20, 0.08), 0 12px 32px rgba(26, 24, 20, 0.08);
+		0 4px 12px rgba(4, 157, 217, 0.1), 0 12px 32px rgba(4, 157, 217, 0.09);
 
-	/* Warm neutrals for text */
-	--text-primary: #1a1814;
-	--text-secondary: #443e38;
-	--text-muted: #6b6560;
+	/* Neutral text */
+	--text-primary: #0d1f2d;
+	--text-secondary: #344a5a;
+	--text-muted: #5e7a8a;
 
-	/* Hero: deep teal-tinged dark */
-	--hero-dark: #1a3234;
-	--hero-darker: #0d2223;
+	/* Hero: deep navy blue */
+	--hero-dark: #0a2d4a;
+	--hero-darker: #061c2e;
 
 	/* Header */
-	--header-bg: rgba(253, 252, 249, 0.97);
-	--header-border: #e8e4dc;
-	--header-logo: #1a1814;
-	--header-tagline: #443e38;
-	--nav-fg: #443e38;
-	--nav-hover: #f3f0ea;
-	--muted-fg: #6b6560;
+	--header-bg: rgba(255, 255, 255, 0.97);
+	--header-border: #d9eaf4;
+	--header-logo: #0d1f2d;
+	--header-tagline: #344a5a;
+	--nav-fg: #344a5a;
+	--nav-hover: #f2f7fb;
+	--muted-fg: #5e7a8a;
 
 	/* Typography — standardised hierarchy */
 	--font-heading: var(--font-merriweather), Georgia, serif;
@@ -58,23 +58,23 @@
 	--radius: 0.75rem;
 	--radius-card: 0;
 
-	--background: #faf8f5;
-	--foreground: #1a1814;
+	--background: #fafafa;
+	--foreground: #0d1f2d;
 	--card: var(--card-bg);
 	--card-foreground: var(--text-primary);
 	--popover: oklch(1 0 0);
 	--popover-foreground: var(--text-primary);
-	--primary: #0a5c5f;
+	--primary: #049DD9;
 	--primary-foreground: oklch(0.985 0 0);
-	--secondary: #f3f0ea;
+	--secondary: #f2f7fb;
 	--secondary-foreground: var(--text-primary);
-	--muted: #f3f0ea;
+	--muted: #f2f7fb;
 	--muted-foreground: var(--text-muted);
 	--accent-foreground: oklch(0.205 0 0);
 	--destructive: oklch(0.58 0.22 27);
-	--border: #e8e4dc;
-	--input: #e8e4dc;
-	--ring: #0a5c5f;
+	--border: #d9eaf4;
+	--input: #d9eaf4;
+	--ring: #049DD9;
 	--chart-1: oklch(0.809 0.105 251.813);
 	--chart-2: oklch(0.623 0.214 259.815);
 	--chart-3: oklch(0.546 0.245 262.881);

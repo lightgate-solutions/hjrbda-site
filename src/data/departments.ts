@@ -8,7 +8,7 @@ export const managingDirector = {
 	name: "Engr. Rabiu Suleiman Yusuf",
 	title: "Managing Director / CEO",
 	qualification: "FNIQS",
-	image: "/images/leadership/md.jpg", // placeholder path; replace with actual photo
+	image: "/MD-image.jpeg",
 } as const;
 
 export type DivisionHead = {
@@ -37,7 +37,7 @@ export const directorates: Directorate[] = [
 		ed: {
 			name: "Hon. Musa Illiyasu Kwankwaso",
 			title: "Executive Director (Admin & Finance)",
-			image: "/images/leadership/ed-admin.jpg",
+			image: "/ED-finance.jpeg",
 		},
 		divisions: [
 			{ name: "Mohammed S. Musa", division: "General Services Division" },
@@ -53,7 +53,7 @@ export const directorates: Directorate[] = [
 		ed: {
 			name: "Tijjani Musa Isa",
 			title: "Executive Director (Planning & Design)",
-			image: "/images/leadership/ed-planning.jpg",
+			image: "/ED-planning-and-design.jpeg",
 		},
 		divisions: [
 			{ name: "Adamu Sa'ad Ajingi", division: "Budget & Planning Division" },
@@ -72,7 +72,7 @@ export const directorates: Directorate[] = [
 		ed: {
 			name: "Baffa Dandatti Abdulkadir",
 			title: "Executive Director (Engineering)",
-			image: "/images/leadership/ed-engineering.jpg",
+			image: "/ED-engineering.jpeg",
 		},
 		divisions: [
 			{
@@ -93,7 +93,7 @@ export const directorates: Directorate[] = [
 		ed: {
 			name: "Haj. Zainab Ibrahim Gamawa",
 			title: "Executive Director (Agricultural Services)",
-			image: "/images/leadership/ed-agricultural.jpg",
+			image: "/ED-agric-services.jpeg",
 		},
 		divisions: [
 			{

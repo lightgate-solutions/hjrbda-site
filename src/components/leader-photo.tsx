@@ -18,15 +18,14 @@ export default function LeaderPhoto({
 
 	return (
 		<div
-			className={`relative aspect-[3/4] w-full min-w-[140px] max-w-[200px] overflow-hidden rounded-lg bg-[var(--section-alt)] ${className ?? ""}`}
+			className={`relative aspect-[4/3] w-full max-w-[320px] shrink-0 overflow-hidden rounded-lg bg-[var(--section-alt)] ${className ?? ""}`}
 		>
 			{!error ? (
 				<Image
 					src={src}
 					alt={alt}
-					width={200}
-					height={267}
-					className="object-cover"
+					fill
+					className="object-cover object-center"
 					onError={() => setError(true)}
 				/>
 			) : null}

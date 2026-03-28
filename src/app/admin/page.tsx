@@ -1,4 +1,4 @@
-import { FileText, LayoutDashboard, Newspaper, Settings } from "lucide-react";
+import { FileText, LayoutDashboard, Newspaper, ScrollText, Settings } from "lucide-react";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -34,10 +34,22 @@ export default async function AdminPage() {
 				icon: FileText,
 			},
 			{
+				href: "/admin/tenders",
+				title: "Manage Tenders",
+				description: "Create, edit, and publish tender notices",
+				icon: ScrollText,
+			},
+			{
 				href: "/news-media",
 				title: "News & Media",
 				description: "View all published news on the site",
 				icon: Newspaper,
+			},
+			{
+				href: "/admin/settings",
+				title: "Settings",
+				description: "Update your profile and change your password",
+				icon: Settings,
 			},
 		];
 
@@ -88,7 +100,7 @@ export default async function AdminPage() {
 							return (
 								<Link
 									key={item.href}
-									href={item.href as "/admin/news" | "/news-media"}
+									href={item.href as "/admin/news" | "/admin/tenders" | "/admin/settings" | "/news-media"}
 								>
 									<Card className="card-institutional h-full overflow-hidden">
 										<CardHeader className="pb-2">
@@ -123,20 +135,6 @@ export default async function AdminPage() {
 						})}
 					</div>
 
-					<div
-						className="mt-12 rounded-md border border-dashed p-6"
-						style={{
-							borderColor: "var(--card-border)",
-							backgroundColor: "var(--section-alt)",
-						}}
-					>
-						<div className="flex items-center gap-2 text-[var(--text-muted)] text-base">
-							<Settings className="h-4 w-4" />
-							<span>
-								More options (e.g. profile, settings) can be added here.
-							</span>
-						</div>
-					</div>
 				</div>
 				<Footer />
 			</div>

@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import PageIntro from "@/components/page-intro";
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/card";
 
 export default function ApplyForGyesPage() {
+	redirect("/");
 	return (
 		<div className="flex min-h-screen flex-col">
 			{/* Intro with accent strip — opportunity / youth focus */}

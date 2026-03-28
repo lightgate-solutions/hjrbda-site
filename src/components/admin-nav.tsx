@@ -1,4 +1,4 @@
-import { LayoutDashboard, Newspaper } from "lucide-react";
+import { LayoutDashboard, Newspaper, ScrollText } from "lucide-react";
 import Link from "next/link";
 
 type BreadcrumbItem = { href?: string; label: string };
@@ -33,7 +33,12 @@ export function AdminNav({ breadcrumbs }: { breadcrumbs: BreadcrumbItem[] }) {
 									)}
 									{item.href ? (
 										<Link
-											href={item.href as "/admin" | "/admin/news"}
+											href={
+												item.href as
+													| "/admin/news"
+													| "/admin/tenders"
+													| "/admin/settings"
+											}
 											className="transition-colors hover:text-[var(--text-primary)] hover:underline"
 										>
 											{item.label}
@@ -63,6 +68,14 @@ export function AdminNav({ breadcrumbs }: { breadcrumbs: BreadcrumbItem[] }) {
 						>
 							<Newspaper className="h-4 w-4 shrink-0" aria-hidden />
 							<span className="hidden sm:inline">News</span>
+						</Link>
+						<Link
+							href="/admin/tenders"
+							className="flex items-center gap-2 rounded-md px-3 py-3 font-medium text-sm transition-colors hover:bg-[var(--section-alt)] sm:px-3 sm:py-2"
+							style={{ color: "var(--text-secondary)" }}
+						>
+							<ScrollText className="h-4 w-4 shrink-0" aria-hidden />
+							<span className="hidden sm:inline">Tenders</span>
 						</Link>
 					</div>
 				</nav>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -13,7 +14,6 @@ const links = [
 	{ to: "/key-projects", label: "Projects" },
 	{ to: "/news-media", label: "News" },
 	{ to: "/tender", label: "Tender" },
-	{ to: "/apply-for-gyes", label: "GYES" },
 	{ to: "/contact", label: "Contact" },
 ] as const;
 
@@ -51,15 +51,20 @@ export default function Header() {
 
 	return (
 		<header className="sticky top-0 z-50 w-full border-[var(--header-border)] border-b bg-[var(--header-bg)] shadow-sm backdrop-blur-md">
-			<div className="container mx-auto flex h-16 min-h-14 items-center justify-between gap-4 px-4 sm:px-6">
-				{/* Logo - HJRBDA only to reduce congestion */}
+			<div className="container mx-auto flex h-16 min-h-16 items-center justify-between gap-4 px-4 sm:px-6">
+				{/* Logo */}
 				<Link
 					href="/"
 					className="flex shrink-0 items-center rounded focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
 				>
-					<span className="font-bold font-heading text-[var(--header-logo)] text-lg tracking-tight sm:text-xl">
-						HJRBDA
-					</span>
+					<Image
+						src="/HJRBDA-transparent-logo.png"
+						alt="H-JRBDA"
+						width={56}
+						height={56}
+						className="h-12 w-auto object-contain sm:h-14"
+						priority
+					/>
 				</Link>
 
 				{/* Desktop nav */}
