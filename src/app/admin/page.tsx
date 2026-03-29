@@ -1,4 +1,4 @@
-import { FileText, LayoutDashboard, Newspaper, ScrollText, Settings } from "lucide-react";
+import { FileText, Inbox, LayoutDashboard, Newspaper, ScrollText, Settings } from "lucide-react";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -38,6 +38,12 @@ export default async function AdminPage() {
 				title: "Manage Tenders",
 				description: "Create, edit, and publish tender notices",
 				icon: ScrollText,
+			},
+			{
+				href: "/admin/contacts",
+				title: "Contact Messages",
+				description: "View messages submitted through the contact form",
+				icon: Inbox,
 			},
 			{
 				href: "/news-media",
@@ -100,7 +106,7 @@ export default async function AdminPage() {
 							return (
 								<Link
 									key={item.href}
-									href={item.href as "/admin/news" | "/admin/tenders" | "/admin/settings" | "/news-media"}
+									href={item.href as "/admin/news" | "/admin/tenders" | "/admin/contacts" | "/admin/settings" | "/news-media"}
 								>
 									<Card className="card-institutional h-full overflow-hidden">
 										<CardHeader className="pb-2">

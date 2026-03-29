@@ -1,4 +1,5 @@
 import { Clock, Mail, MapPin } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
 import Footer from "@/components/footer";
 import PageIntro from "@/components/page-intro";
 import ScrollAnimate from "@/components/scroll-animate";
@@ -128,82 +129,7 @@ export default function ContactPage() {
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="pt-6">
-								<form className="space-y-4">
-									<div>
-										<label
-											htmlFor="name"
-											className="mb-2 block font-medium text-[var(--text-primary)] text-base"
-										>
-											Full name
-										</label>
-										<input
-											type="text"
-											id="name"
-											name="name"
-											className="w-full rounded-md border border-[var(--card-border)] bg-white px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
-											placeholder="Enter your full name"
-										/>
-									</div>
-
-									<div>
-										<label
-											htmlFor="email"
-											className="mb-2 block font-medium text-[var(--text-primary)] text-base"
-										>
-											Email address
-										</label>
-										<input
-											type="email"
-											id="email"
-											name="email"
-											className="w-full rounded-md border border-[var(--card-border)] bg-white px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
-											placeholder="Enter your email address"
-										/>
-									</div>
-
-									<div>
-										<label
-											htmlFor="subject"
-											className="mb-2 block font-medium text-[var(--text-primary)] text-base"
-										>
-											Subject
-										</label>
-										<input
-											type="text"
-											id="subject"
-											name="subject"
-											className="w-full rounded-md border border-[var(--card-border)] bg-white px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
-											placeholder="Enter subject"
-										/>
-									</div>
-
-									<div>
-										<label
-											htmlFor="message"
-											className="mb-2 block font-medium text-[var(--text-primary)] text-base"
-										>
-											Message
-										</label>
-										<textarea
-											id="message"
-											name="message"
-											rows={5}
-											className="w-full rounded-md border border-[var(--card-border)] bg-white px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
-											placeholder="Enter your message"
-										/>
-									</div>
-
-									<button
-										type="submit"
-										className="mt-2 w-full rounded-md px-6 py-4 font-semibold text-lg text-white transition-colors hover:opacity-95"
-										style={{
-											backgroundColor: "var(--accent)",
-											minHeight: "3.25rem",
-										}}
-									>
-										Send message
-									</button>
-								</form>
+								<ContactForm />
 							</CardContent>
 						</Card>
 					</ScrollAnimate>

@@ -2,5 +2,11 @@
 	"framework": "nextjs",
 	"buildCommand": "bun run build",
 	"outputDirectory": ".next",
-	"installCommand": "bun install"
+	"installCommand": "bun install",
+	"crons": [
+		{
+			"path": "/api/cron/cleanup-contacts",
+			"schedule": "0 2 * * 1"
+		}
+	]
 }
