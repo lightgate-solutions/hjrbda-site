@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import LeaderPhoto from "@/components/leader-photo";
@@ -87,6 +88,14 @@ export default function AboutPage() {
 									className="block h-full transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
 								>
 									<Card className="card-institutional h-full overflow-hidden border-2 border-[var(--card-border)] shadow-md transition-shadow hover:border-[var(--accent)]/30 hover:shadow-lg">
+										<div className="relative -mt-4 aspect-[4/3] w-full overflow-hidden">
+											<Image
+												src={dir.ed.image}
+												alt={dir.ed.name}
+												fill
+												className="object-cover object-top"
+											/>
+										</div>
 										<CardHeader className="pb-2">
 											<div
 												className="mb-3 h-1 w-12 rounded-sm"
